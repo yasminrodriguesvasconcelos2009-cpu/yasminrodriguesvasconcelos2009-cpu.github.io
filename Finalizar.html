@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Finalizar compra - Vela Vibe</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="cabecalho">
+
+    <div class="logo">
+        <a href="index.html">
+            <img src="img/logo.jpg" alt="Logo Vela Vibe">
+        </a>
+    </div>
+
+    <nav class="menu">
+        <a href="index.html">Início</a>
+        <a href="Produtos.html">Produtos</a>
+        <a href="atacado.html">Atacado</a>
+        <a href="sobre.html">Sobre nós</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+
+    <div class="acoes-cabecalho">
+
+        <a
+                href="CrieSuaVela.html"
+                class="criar-vela"
+                title="Crie sua vela"
+        >
+            <img
+                    src="img/criarsuavela.jpg"
+                    alt="Crie sua vela"
+            >
+        </a>
+
+        <a
+                href="Carrinho.html"
+                class="carrinho"
+                title="Carrinho"
+        >
+            <img
+                    src="img/carrinho.jpg"
+                    alt="Carrinho"
+            >
+        </a>
+
+    </div>
+
+</header>
+
+
+<main class="finalizar-conteudo">
+
+    <h1>Finalizar compra</h1>
+
+    <div class="finalizar-area">
+
+        <!-- Dados do cliente -->
+
+        <section class="dados-cliente">
+
+            <h2>Seus dados</h2>
+
+            <form id="formulario-compra">
+
+                <label for="nome">Nome completo</label>
+
+                <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Digite seu nome"
+                        required
+                >
+
+
+                <label for="email">E-mail</label>
+
+                <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Digite seu e-mail"
+                        required
+                >
+
+
+                <label for="endereco">Endereço</label>
+
+                <input
+                        type="text"
+                        id="endereco"
+                        name="endereco"
+                        placeholder="Digite seu endereço"
+                        required
+                >
+
+
+                <label for="cidade">Cidade</label>
+
+                <input
+                        type="text"
+                        id="cidade"
+                        name="cidade"
+                        placeholder="Digite sua cidade"
+                        required
+                >
+
+
+                <label for="cep">CEP</label>
+
+                <input
+                        type="text"
+                        id="cep"
+                        name="cep"
+                        placeholder="Digite seu CEP"
+                        required
+                >
+
+
+                <h2>Forma de pagamento</h2>
+
+                <label for="pagamento">
+                    Escolha uma forma de pagamento
+                </label>
+
+                <select id="pagamento" name="pagamento" required>
+
+                    <option value="">
+                        Selecione uma opção
+                    </option>
+
+                    <option value="pix">
+                        Pix
+                    </option>
+
+                    <option value="cartao">
+                        Cartão de crédito
+                    </option>
+
+                    <option value="boleto">
+                        Boleto bancário
+                    </option>
+
+                </select>
+
+
+                <button type="submit" id="confirmar-compra">
+                    Confirmar pedido
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Resumo do pedido -->
+
+        <section class="resumo-final">
+
+            <h2>Resumo do pedido</h2>
+
+            <div id="resumo-produtos">
+
+                <p>Carregando produtos...</p>
+
+            </div>
+
+            <hr>
+
+            <p>
+                Subtotal:
+                <span id="subtotal-final">
+                    R$ 0,00
+                </span>
+            </p>
+
+            <p>
+                Total:
+                <strong id="total-final">
+                    R$ 0,00
+                </strong>
+            </p>
+
+        </section>
+
+    </div>
+
+</main>
+
+<footer class="rodape">
+
+    <!-- NEWSLETTER -->
+    <div class="newsletter">
+
+        <div class="newsletter-texto">
+            <p>
+                Fique por dentro das nossas novidades e
+                promoções exclusivas.
+            </p>
+        </div>
+
+        <div class="newsletter-form">
+
+            <label for="newsletter-email">E-mail</label>
+
+            <input
+                    type="email"
+                    id="newsletter-email"
+                    name="newsletter-email"
+                    placeholder="Digite seu e-mail"
+            >
+            <button type="button">
+                ➤
+            </button>
+        </div>
+
+        <div class="redes-sociais">
+            <span>SIGA-NOS</span>
+
+            <a href="#" aria-label="Instagram">
+                ◎
+            </a>
+        </div>
+
+    </div>
+
+
+    <!-- INFORMAÇÕES -->
+    <div class="rodape-conteudo">
+
+        <!-- LOGO -->
+        <div class="rodape-coluna logo-rodape">
+
+            <img
+                    src="img/logo.jpg"
+                    alt="Vela Vibe"
+            >
+
+            <p>
+                © 2026 Vela Vibe
+            </p>
+
+        </div>
+
+
+        <!-- SOBRE -->
+        <div class="rodape-coluna">
+
+            <p>
+                Oferecemos velas de alta qualidade,
+                feitas com ceras naturais e fragrâncias
+                cuidadosamente escolhidas para uma
+                experiência única.
+            </p>
+
+            <p>
+                ☎ (11) 91959-4341
+            </p>
+
+            <p>
+                ✉ velavibe2026@gmail.com
+            </p>
+
+        </div>
+
+
+        <!-- PRODUTOS -->
+        <div class="rodape-coluna">
+
+            <h3>PRODUTOS</h3>
+
+            <a href="Produtos.html">
+                Nosso catálogo
+            </a>
+
+            <a href="CrieSuaVela.html">
+                Crie sua vela
+            </a>
+
+            <a href="atacado.html">
+                Atacado
+            </a>
+
+        </div>
+
+
+        <!-- ACESSO RÁPIDO -->
+        <div class="rodape-coluna">
+
+            <h3>ACESSO RÁPIDO</h3>
+
+            <a href="sobre.html">
+                Sobre nós
+            </a>
+
+            <a href="contato.html">
+                Contato
+            </a>
+
+            <a href="Carrinho.html">
+                Meu carrinho
+            </a>
+
+        </div>
+
+
+        <!-- POLÍTICAS -->
+        <div class="rodape-coluna">
+
+            <h3>POLÍTICAS</h3>
+
+            <a href="#">
+                Perguntas frequentes
+            </a>
+
+            <a href="#">
+                Política de privacidade
+            </a>
+
+            <a href="#">
+                Termos de uso
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- COPYRIGHT -->
+    <div class="rodape-final">
+
+        <span>
+            © 2026 Vela Vibe
+        </span>
+
+        <span>
+            Todos os direitos reservados.
+        </span>
+
+    </div>
+
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

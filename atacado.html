@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Atacado - Vela Vibe</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="cabecalho">
+
+    <div class="logo">
+
+        <img src="img/logo.jpg"
+             alt="Logo Vela Vibe">
+
+    </div>
+
+
+    <nav class="menu">
+
+        <a href="index.html">
+            Início
+        </a>
+
+        <a href="Produtos.html">
+            Produtos
+        </a>
+
+        <a href="atacado.html">
+            Atacado
+        </a>
+
+        <a href="sobre.html">
+            Sobre nós
+        </a>
+
+        <a href="contato.html">
+            Contato
+        </a>
+
+    </nav>
+
+
+    <div class="acoes-cabecalho">
+
+        <a href="CrieSuaVela.html"
+           class="criar-vela"
+           title="Crie sua vela">
+
+            <img src="img/criarsuavela.jpg"
+                 alt="Crie sua vela">
+
+        </a>
+
+        <a href="Acompanhe.html" class="acompanhar-entrega" title="Acompanhar entrega">
+            <img src="img/icone2.jpg" alt="Acompanhar entrega">
+        </a>
+
+        <a href="Carrinho.html"
+           class="carrinho"
+           title="Carrinho">
+
+            <img src="img/carrinho.jpg"
+                 alt="Carrinho">
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<main class="atacado-conteudo">
+
+
+    <section class="atacado">
+
+
+        <h1>
+            Vela Vibe no atacado
+        </h1>
+
+
+        <p class="atacado-intro">
+
+            Quer comprar as nossas velas em maior quantidade?
+
+            Faça uma solicitação de orçamento para pedidos
+            no atacado.
+
+        </p>
+
+
+
+        <div class="atacado-info">
+
+
+            <h2>
+                Como funciona?
+            </h2>
+
+
+            <p>
+
+                Trabalhamos com pedidos em quantidade para lojas,
+                eventos, empresas e outras ocasiões especiais.
+
+            </p>
+
+
+            <p>
+
+                Preencha o formulário abaixo com os seus dados e
+                conte para nós quais produtos e quantidades
+                você deseja.
+
+            </p>
+
+
+        </div>
+
+
+
+        <form
+
+                id="formulario-atacado"
+
+                class="formulario-atacado"
+
+                action="https://formspree.io/f/xwlknddr"
+
+                method="POST"
+
+        >
+
+
+            <input
+
+                    type="hidden"
+
+                    name="subject"
+
+                    value="Nova solicitação de orçamento - Vela Vibe"
+
+            >
+
+
+
+            <h2>
+                Solicite o seu orçamento
+            </h2>
+
+
+
+            <div class="campo-atacado">
+
+
+                <label for="nome-atacado">
+                    Nome
+                </label>
+
+
+                <input
+
+                        type="text"
+
+                        id="nome-atacado"
+
+                        name="nome"
+
+                        placeholder="Digite seu nome"
+
+                        required
+
+                >
+
+
+            </div>
+
+
+
+            <div class="campo-atacado">
+
+
+                <label for="email-atacado">
+                    E-mail
+                </label>
+
+
+                <input
+
+                        type="email"
+
+                        id="email-atacado"
+
+                        name="email"
+
+                        placeholder="Digite seu e-mail"
+
+                        required
+
+                >
+
+
+            </div>
+
+
+
+            <div class="campo-atacado">
+
+
+                <label for="empresa-atacado">
+                    Empresa ou loja
+                </label>
+
+
+                <input
+
+                        type="text"
+
+                        id="empresa-atacado"
+
+                        name="empresa"
+
+                        placeholder="Nome da empresa ou loja"
+
+                >
+
+
+            </div>
+
+
+
+            <div class="campo-atacado">
+
+
+                <label for="quantidade-atacado">
+                    Quantidade aproximada
+                </label>
+
+
+                <input
+
+                        type="number"
+
+                        id="quantidade-atacado"
+
+                        name="quantidade"
+
+                        min="1"
+
+                        placeholder="Ex: 50"
+
+                        required
+
+                >
+
+
+            </div>
+
+
+
+            <div class="campo-atacado">
+
+
+                <label for="mensagem-atacado">
+                    Quais produtos você deseja?
+                </label>
+
+
+                <textarea
+
+                        id="mensagem-atacado"
+
+                        name="mensagem"
+
+                        rows="6"
+
+                        placeholder="Ex: 20 velas de baunilha, 15 de lavanda..."
+
+                        required
+
+                ></textarea>
+
+
+            </div>
+
+
+
+            <button
+
+                    type="submit"
+
+                    id="enviar-atacado"
+
+                    class="botao-atacado"
+
+            >
+
+                Solicitar orçamento
+
+            </button>
+
+
+        </form>
+
+
+    </section>
+
+
+</main>
+
+<footer class="rodape">
+
+    <!-- NEWSLETTER -->
+    <div class="newsletter">
+
+        <div class="newsletter-texto">
+            <p>
+                Fique por dentro das nossas novidades e
+                promoções exclusivas.
+            </p>
+        </div>
+
+        <div class="newsletter-form">
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu e-mail">
+
+            <button type="button">
+                ➤
+            </button>
+        </div>
+
+        <div class="redes-sociais">
+            <span>SIGA-NOS</span>
+
+            <a href="#" aria-label="Instagram">
+                ◎
+            </a>
+        </div>
+
+    </div>
+
+
+    <!-- INFORMAÇÕES -->
+    <div class="rodape-conteudo">
+
+        <!-- LOGO -->
+        <div class="rodape-coluna logo-rodape">
+
+            <img
+                    src="img/logo.jpg"
+                    alt="Vela Vibe"
+            >
+
+            <p>
+                © 2026 Vela Vibe
+            </p>
+
+        </div>
+
+
+        <!-- SOBRE -->
+        <div class="rodape-coluna">
+
+            <p>
+                Oferecemos velas de alta qualidade,
+                feitas com ceras naturais e fragrâncias
+                cuidadosamente escolhidas para uma
+                experiência única.
+            </p>
+
+            <p>
+                ☎ (11) 91959-4341
+            </p>
+
+            <p>
+                ✉ velavibe2026@gmail.com
+            </p>
+
+        </div>
+
+
+        <!-- PRODUTOS -->
+        <div class="rodape-coluna">
+
+            <h3>PRODUTOS</h3>
+
+            <a href="Produtos.html">
+                Nosso catálogo
+            </a>
+
+            <a href="CrieSuaVela.html">
+                Crie sua vela
+            </a>
+
+            <a href="atacado.html">
+                Atacado
+            </a>
+
+        </div>
+
+
+        <!-- ACESSO RÁPIDO -->
+        <div class="rodape-coluna">
+
+            <h3>ACESSO RÁPIDO</h3>
+
+            <a href="sobre.html">
+                Sobre nós
+            </a>
+
+            <a href="contato.html">
+                Contato
+            </a>
+
+            <a href="Carrinho.html">
+                Meu carrinho
+            </a>
+
+        </div>
+
+
+        <!-- POLÍTICAS -->
+        <div class="rodape-coluna">
+
+            <h3>POLÍTICAS</h3>
+
+            <a href="#">
+                Perguntas frequentes
+            </a>
+
+            <a href="#">
+                Política de privacidade
+            </a>
+
+            <a href="#">
+                Termos de uso
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- COPYRIGHT -->
+    <div class="rodape-final">
+
+        <span>
+            © 2026 Vela Vibe
+        </span>
+
+        <span>
+            Todos os direitos reservados.
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script src="js/script.js"></script>
+
+
+</body>
+
+</html>

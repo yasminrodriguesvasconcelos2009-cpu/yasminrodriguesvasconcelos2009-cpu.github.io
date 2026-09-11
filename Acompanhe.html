@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Acompanhar entrega - Vela Vibe</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="cabecalho">
+
+    <div class="logo">
+
+        <a href="index.html">
+
+            <img
+                    src="img/logo.jpg"
+                    alt="Logo Vela Vibe"
+            >
+
+        </a>
+
+    </div>
+
+
+    <nav class="menu">
+
+        <a href="index.html">
+            Início
+        </a>
+
+        <a href="Produtos.html">
+            Produtos
+        </a>
+
+        <a href="atacado.html">
+            Atacado
+        </a>
+
+        <a href="sobre.html">
+            Sobre nós
+        </a>
+
+        <a href="contato.html">
+            Contato
+        </a>
+
+    </nav>
+
+
+    <div class="acoes-cabecalho">
+
+        <a
+                href="CrieSuaVela.html"
+                class="criar-vela"
+                title="Crie sua vela"
+        >
+
+            <img
+                    src="img/criarsuavela.jpg"
+                    alt="Crie sua vela"
+            >
+
+        </a>
+
+        <a href="Acompanhe.html" class="acompanhar-entrega" title="Acompanhar entrega">
+            <img src="img/icone2.jpg" alt="Acompanhar entrega">
+        </a>
+
+        <a
+                href="Carrinho.html"
+                class="carrinho"
+                title="Carrinho"
+        >
+
+            <img
+                    src="img/carrinho.jpg"
+                    alt="Carrinho"
+            >
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<main class="acompanhar-pagina">
+
+
+    <!-- =====================================
+         TÍTULO
+    ====================================== -->
+
+    <section class="acompanhar-introducao">
+
+        <span class="acompanhar-legenda">
+            VELA VIBE
+        </span>
+
+        <h1>
+            Acompanhe sua entrega!
+        </h1>
+
+        <p>
+            Veja em qual etapa está o seu pedido
+            e acompanhe cada momento até ele chegar.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================
+         CONSULTA DO PEDIDO
+    ====================================== -->
+
+    <section class="consulta-pedido">
+
+        <h2>
+            Consulte seu pedido
+        </h2>
+
+        <p>
+            Digite o número do pedido para
+            acompanhar a entrega.
+        </p>
+
+
+        <div class="campo-pedido">
+
+            <label
+                    type="text"
+                    id="numero-pedido"
+                    placeholder="Ex: VV2026-001"
+            >
+
+            <button
+                    type="button"
+                    id="consultar-pedido"
+            >
+                Consultar pedido
+            </button>
+
+        </div>
+
+        <p
+                id="mensagem-pedido"
+                class="mensagem-pedido"
+        ></p>
+
+    </section>
+
+
+    <!-- =====================================
+         INFORMAÇÕES DO PEDIDO
+    ====================================== -->
+
+    <section
+            class="informacoes-pedido"
+            id="informacoes-pedido"
+    >
+
+        <div class="pedido-cabecalho">
+
+            <div>
+
+                <span>
+                    NÚMERO DO PEDIDO
+                </span>
+
+                <h2 id="numero-pedido-exibido">
+                    #VV2026-001
+                </h2>
+
+            </div>
+
+
+            <div class="status-pedido">
+
+                <span>
+                    STATUS
+                </span>
+
+                <strong id="status-atual">
+                    Pedido realizado
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================
+             PRODUTOS
+        ================================== -->
+
+        <div class="produto-pedido">
+
+            <div class="icone-produto">
+                🕯️
+            </div>
+
+            <div>
+
+                <span>
+                    PRODUTO
+                </span>
+
+                <h3 id="produto-pedido-nome">
+                    Seu pedido Vela Vibe
+                </h3>
+
+                <p id="produto-pedido-detalhes">
+                    Confira abaixo o andamento da sua entrega.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================
+             LINHA DE PROGRESSO
+        ================================== -->
+
+        <div class="rastreamento">
+
+            <div
+                    class="etapa ativa"
+                    id="etapa-1"
+            >
+
+                <div class="circulo">
+                    ✓
+                </div>
+
+                <span>
+                    Pedido realizado
+                </span>
+
+            </div>
+
+
+            <div
+                    class="linha"
+                    id="linha-1"
+            ></div>
+
+
+            <div
+                    class="etapa"
+                    id="etapa-2"
+            >
+
+                <div class="circulo">
+                    2
+                </div>
+
+                <span>
+                    Pedido confirmado
+                </span>
+
+            </div>
+
+
+            <div
+                    class="linha"
+                    id="linha-2"
+            ></div>
+
+
+            <div
+                    class="etapa"
+                    id="etapa-3"
+            >
+
+                <div class="circulo">
+                    3
+                </div>
+
+                <span>
+                    Preparando
+                </span>
+
+            </div>
+
+
+            <div
+                    class="linha"
+                    id="linha-3"
+            ></div>
+
+
+            <div
+                    class="etapa"
+                    id="etapa-4"
+            >
+
+                <div class="circulo">
+                    4
+                </div>
+
+                <span>
+                    Enviado
+                </span>
+
+            </div>
+
+
+            <div
+                    class="linha"
+                    id="linha-4"
+            ></div>
+
+
+            <div
+                    class="etapa"
+                    id="etapa-5"
+            >
+
+                <div class="circulo">
+                    5
+                </div>
+
+                <span>
+                    Entregue
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================
+             MENSAGEM
+        ================================== -->
+
+        <div class="mensagem-entrega">
+
+            <span>
+                🕯️
+            </span>
+
+            <p id="mensagem-entrega-texto">
+
+                Seu pedido foi realizado com sucesso.
+                Em breve começaremos a preparar sua vela!
+
+            </p>
+
+        </div>
+
+
+        <!-- =================================
+             BOTÃO DE DEMONSTRAÇÃO
+        ================================== -->
+
+        <button
+                type="button"
+                id="avancar-status"
+                class="botao-status"
+        >
+            Avançar status
+        </button>
+
+
+    </section>
+
+
+    <!-- =====================================
+         VOLTAR
+    ====================================== -->
+
+    <div class="voltar-acompanhar">
+
+        <a href="index.html">
+            ← Voltar para o início
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer class="rodape">
+
+    <div class="newsletter">
+
+        <div class="newsletter-texto">
+
+            <p>
+                Fique por dentro das nossas novidades e
+                promoções exclusivas.
+            </p>
+
+        </div>
+
+
+        <div class="newsletter-form">
+
+            <label for="email">
+                E-mail
+            </label>
+
+            <input
+                    type="email"
+                    id="email"
+                    placeholder="Digite seu e-mail"
+            >
+
+            <button type="button">
+                ➤
+            </button>
+
+        </div>
+
+
+        <div class="redes-sociais">
+
+            <span>
+                SIGA-NOS
+            </span>
+
+            <a href="#" aria-label="Instagram">
+                ◎
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="rodape-conteudo">
+
+
+        <div class="rodape-coluna logo-rodape">
+
+            <img
+                    src="img/logo.jpg"
+                    alt="Vela Vibe"
+            >
+
+            <p>
+                © 2026 Vela Vibe
+            </p>
+
+        </div>
+
+
+        <div class="rodape-coluna">
+
+            <p>
+                Oferecemos velas de alta qualidade,
+                feitas com ceras naturais e fragrâncias
+                cuidadosamente escolhidas para uma
+                experiência única.
+            </p>
+
+            <p>
+                ☎ (11) 9 9999-9999
+            </p>
+
+            <p>
+                ✉ contato@velavibe.com.br
+            </p>
+
+        </div>
+
+
+        <div class="rodape-coluna">
+
+            <h3>
+                PRODUTOS
+            </h3>
+
+            <a href="Produtos.html">
+                Nosso catálogo
+            </a>
+
+            <a href="CrieSuaVela.html">
+                Crie sua vela
+            </a>
+
+            <a href="atacado.html">
+                Atacado
+            </a>
+
+        </div>
+
+
+        <div class="rodape-coluna">
+
+            <h3>
+                ACESSO RÁPIDO
+            </h3>
+
+            <a href="sobre.html">
+                Sobre nós
+            </a>
+
+            <a href="contato.html">
+                Contato
+            </a>
+
+            <a href="Carrinho.html">
+                Meu carrinho
+            </a>
+
+        </div>
+
+
+        <div class="rodape-coluna">
+
+            <h3>
+                POLÍTICAS
+            </h3>
+
+            <a href="#">
+                Perguntas frequentes
+            </a>
+
+            <a href="#">
+                Política de privacidade
+            </a>
+
+            <a href="#">
+                Termos de uso
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="rodape-final">
+
+        <span>
+            © 2026 Vela Vibe
+        </span>
+
+        <span>
+            Todos os direitos reservados.
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
