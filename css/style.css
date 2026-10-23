@@ -3083,3 +3083,231 @@ body {
     }
 
 }
+
+/* =========================================
+   PÁGINA DE EVENTOS — VELA VIBE
+========================================= */
+
+.eventos-pagina {
+    background-color: var(--creme);
+    color: var(--preto);
+}
+
+.eventos-hero {
+    min-height: 460px;
+    padding: 70px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    box-sizing: border-box;
+}
+
+.eventos-hero-conteudo {
+    flex: 1;
+    max-width: 570px;
+}
+
+.eventos-legenda {
+    display: block;
+    margin-bottom: 15px;
+    color: var(--terracota);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.eventos-hero h1 {
+    margin: 0 0 22px;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.15;
+    color: var(--preto);
+}
+
+.eventos-hero p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+.eventos-hero-imagem {
+    flex: 1;
+    max-width: 520px;
+}
+
+.eventos-hero-imagem img {
+    display: block;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+.eventos-botao {
+    display: inline-block;
+    padding: 14px 25px;
+    margin: 5px 10px 5px 0;
+    background-color: var(--terracota);
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.eventos-botao:hover {
+    background-color: var(--dourado);
+    color: var(--preto);
+}
+
+.eventos-categorias {
+    padding: 70px 8%;
+    background-color: #fffaf4;
+}
+
+.eventos-titulo {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.eventos-titulo h2 {
+    margin-bottom: 12px;
+    color: var(--terracota);
+    font-size: 36px;
+}
+
+.eventos-titulo p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.eventos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.eventos-card {
+    overflow: hidden;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.eventos-card img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.eventos-card-conteudo {
+    padding: 22px;
+}
+
+.eventos-card h3 {
+    margin: 0 0 12px;
+    color: var(--terracota);
+    font-size: 22px;
+}
+
+.eventos-card p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.eventos-orcamento {
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.eventos-orcamento h2 {
+    margin-bottom: 15px;
+    color: var(--terracota);
+    font-size: 34px;
+}
+
+.eventos-orcamento p {
+    max-width: 700px;
+    margin: 0 auto 25px;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.eventos-formulario {
+    width: 100%;
+    max-width: 700px;
+    margin: 30px auto 0;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: left;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.eventos-formulario label {
+    display: block;
+    margin: 16px 0 8px;
+    font-weight: bold;
+}
+
+.eventos-formulario input,
+.eventos-formulario select,
+.eventos-formulario textarea {
+    width: 100%;
+    padding: 13px;
+    box-sizing: border-box;
+    border: 1px solid #d6c7b8;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.eventos-formulario textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.eventos-formulario button {
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .eventos-hero {
+        flex-direction: column;
+        padding: 45px 6%;
+    }
+
+    .eventos-hero-conteudo,
+    .eventos-hero-imagem {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .eventos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .eventos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .eventos-hero-imagem img {
+        height: 250px;
+    }
+
+    .eventos-categorias,
+    .eventos-orcamento {
+        padding: 45px 6%;
+    }
+
+    .eventos-formulario {
+        padding: 20px;
+    }
+}
