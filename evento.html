@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -364,85 +363,209 @@
 
 </main>
 
-<footer class="eventos-rodape">
-    <a href="index.html" class="eventos-rodape-logo">
-        <img src="img/Logo.jpeg" alt="Vela Vibe">
-    </a>
+ <footer class="rodape">
 
-    <p>Velas para iluminar momentos especiais.</p>
 
-    <a
-        href="https://www.instagram.com/vela.vibe_/"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        Acompanhe a Vela Vibe no Instagram
-    </a>
+        <!-- NEWSLETTER -->
 
-    <p class="eventos-copyright">
-        © 2026 Vela Vibe. Todos os direitos reservados.
-    </p>
-</footer>
+        <div class="newsletter">
 
-<script>
-    const formularioEventos = document.getElementById("form-eventos");
-    const seletorTipo = document.getElementById("evento-tipo");
+            <div class="newsletter-texto">
 
-    formularioEventos.addEventListener("submit", function(event) {
-        event.preventDefault();
+                <p>
+                    Fique por dentro das nossas novidades e
+                    promoções exclusivas.
+                </p>
 
-        if (!formularioEventos.reportValidity()) {
-            return;
-        }
+            </div>
 
-        const nome = document.getElementById("evento-nome").value.trim();
-        const contato = document.getElementById("evento-contato").value.trim();
-        const tipo = seletorTipo.value;
-        const data = document.getElementById("evento-data").value;
-        const quantidade = document.getElementById("evento-quantidade").value;
-        const personalizacao = document.getElementById("evento-personalizacao").value;
-        const detalhes = document.getElementById("evento-detalhes").value.trim();
 
-        const dataFormatada = data
-            ? data.split("-").reverse().join("/")
-            : "Ainda não definida";
+            <!-- FORMULÁRIO DE NEWSLETTER -->
 
-        const mensagem =
-`Olá, Vela Vibe! Gostaria de solicitar um orçamento para um evento.
+            <div class="newsletter-form">
 
-Nome: ${nome}
-Meu telefone/WhatsApp: ${contato}
-Tipo de evento: ${tipo}
-Data prevista: ${dataFormatada}
-Quantidade aproximada: ${quantidade || "Ainda não definida"}
-Personalização desejada: ${personalizacao || "Gostaria de conversar sobre as opções"}
-Detalhes: ${detalhes || "Ainda não informados"}
+                <label for="newsletter-email">
+                    E-mail
+                </label>
 
-Aguardo informações sobre as opções e o orçamento. Obrigado(a)!`;
+                <div class="newsletter-campo">
 
-        const url = "https://wa.me/5511919594341?text=" +
-            encodeURIComponent(mensagem);
+                    <input
+                        type="email"
+                        id="newsletter-email"
+                        name="newsletter-email"
+                        placeholder="Digite seu e-mail"
+                    >
 
-        window.open(url, "_blank");
-    });
+                    <button type="button"
+                            aria-label="Enviar e-mail">
 
-    document.querySelectorAll("[data-tipo]").forEach(function(link) {
-        link.addEventListener("click", function() {
-            const tipo = link.getAttribute("data-tipo");
+                        ➤
 
-            const correspondencias = {
-                "Casamento": "Casamento",
-                "Aniversário ou festa de 15 anos": "Aniversário",
-                "Formatura": "Formatura",
-                "Evento corporativo": "Evento corporativo",
-                "Lembrancinhas personalizadas": "Lembrancinhas personalizadas",
-                "Chá de bebê ou outro evento": "Chá de bebê"
-            };
+                    </button>
 
-            seletorTipo.value = correspondencias[tipo] || "";
-        });
-    });
-</script>
+                </div>
+
+            </div>
+
+
+            <!-- INSTAGRAM -->
+
+            <div class="redes-sociais">
+
+                <span>SIGA-NOS</span>
+
+                <a href="https://www.instagram.com/vela.vibe_/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   title="Instagram Vela Vibe"
+                   aria-label="Visite o Instagram da Vela Vibe">
+
+                    <img src="img/instagram.png"
+                         alt="Instagram Vela Vibe">
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- INFORMAÇÕES DO RODAPÉ -->
+
+        <div class="rodape-conteudo">
+
+
+            <!-- LOGO -->
+
+            <div class="rodape-coluna logo-rodape">
+
+                <img src="img/Logo.jpeg"
+                     alt="Vela Vibe">
+
+                <p>
+                    © 2026 Vela Vibe
+                </p>
+
+            </div>
+
+
+            <!-- SOBRE -->
+
+            <div class="rodape-coluna">
+
+                <p>
+                    Oferecemos velas de alta qualidade,
+                    feitas com ceras naturais e fragrâncias
+                    cuidadosamente escolhidas para uma
+                    experiência única.
+                </p>
+
+                <p>
+                    ☎ +55 11 91959-4341
+                </p>
+
+                <p>
+                    ✉ velavibe2026@gmail.com
+                </p>
+
+            </div>
+
+
+            <!-- PRODUTOS -->
+
+            <div class="rodape-coluna">
+
+                <h3>PRODUTOS</h3>
+
+                <a href="Produtos.html">
+                    Nosso catálogo
+                </a>
+
+                <a href="CrieSuaVela.html">
+                    Crie sua vela
+                </a>
+
+                <a href="atacado.html">
+                    Atacado
+                </a>
+
+                <a href="evento.html">
+                    Eventos
+                </a>
+
+            </div>
+
+
+            <!-- ACESSO RÁPIDO -->
+
+            <div class="rodape-coluna">
+
+                <h3>ACESSO RÁPIDO</h3>
+
+                <a href="sobre.html">
+                    Sobre nós
+                </a>
+
+                <a href="contato.html">
+                    Contato
+                </a>
+
+                <a href="Carrinho.html">
+                    Meu carrinho
+                </a>
+
+                <a href="Acompanhe.html">
+                    Acompanhar entrega
+                </a>
+
+            </div>
+
+
+            <!-- POLÍTICAS -->
+
+            <div class="rodape-coluna">
+
+                <h3>POLÍTICAS</h3>
+
+                <a href="#">
+                    Perguntas frequentes
+                </a>
+
+                <a href="#">
+                    Política de privacidade
+                </a>
+
+                <a href="#">
+                    Termos de uso
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- COPYRIGHT -->
+
+        <div class="rodape-final">
+
+            <span>
+                © 2026 Vela Vibe
+            </span>
+
+            <span>
+                Todos os direitos reservados.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/script.js"></script>
 
 </body>
+
 </html>
