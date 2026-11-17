@@ -3390,3 +3390,366 @@ a {
     }
 
 }
+
+/* =========================================
+   PÁGINA DE PRODUTOS - VELA VIBE
+========================================= */
+
+.pagina-produtos {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* APRESENTAÇÃO */
+
+.produtos-apresentacao {
+    text-align: center;
+    padding: 75px 6% 65px;
+    background-color: var(--creme);
+}
+
+.produtos-subtitulo,
+.colecao-titulo > span,
+.precos-texto > span,
+.divisao-colecoes > span {
+    color: var(--marrom);
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+.produtos-apresentacao h1 {
+    color: var(--marrom-escuro);
+    font-size: 42px;
+    margin: 15px 0;
+}
+
+.produtos-apresentacao > p:last-child {
+    color: var(--preto);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* COLEÇÃO ESTAÇÕES */
+
+.colecao-estacoes {
+    padding: 70px 6%;
+    background-color: #f8f3eb;
+}
+
+.colecao-titulo {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.colecao-titulo h2,
+.divisao-colecoes h2 {
+    color: var(--marrom-escuro);
+    font-size: 34px;
+    margin: 12px 0;
+}
+
+.colecao-titulo p,
+.divisao-colecoes p {
+    color: #6b574a;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.produtos-estacoes {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px;
+}
+
+/* CARD ESTAÇÕES */
+
+.produto-estacao {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produto-estacao:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.produto-estacao-imagem {
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+}
+
+.produto-estacao-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.produto-estacao:hover .produto-estacao-imagem img {
+    transform: scale(1.05);
+}
+
+.produto-estacao-conteudo {
+    padding: 24px 20px;
+    text-align: center;
+}
+
+.estacao-etiqueta {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.produto-estacao h3 {
+    font-size: 23px;
+    color: var(--marrom-escuro);
+    margin: 12px 0;
+}
+
+.estacao-aroma {
+    color: var(--marrom);
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.estacao-descricao {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.7;
+    min-height: 44px;
+    margin-bottom: 20px;
+}
+
+/* IDENTIDADE DAS ESTAÇÕES */
+
+.verao .estacao-etiqueta {
+    color: #78815a;
+}
+
+.outono .estacao-etiqueta {
+    color: #b56b3e;
+}
+
+.inverno .estacao-etiqueta {
+    color: #718cae;
+}
+
+.primavera .estacao-etiqueta {
+    color: #c47b88;
+}
+
+/* BOTÃO */
+
+.produto-estacao .botao-compra {
+    display: inline-block;
+    text-decoration: none;
+    background-color: var(--marrom);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 3px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.produto-estacao .botao-compra:hover {
+    background-color: var(--marrom-escuro);
+}
+
+/* =========================================
+   PREÇOS
+========================================= */
+
+.produtos-precos {
+    padding: 65px 8%;
+    background-color: #e9dfd2;
+    text-align: center;
+}
+
+.precos-texto h2 {
+    color: var(--marrom-escuro);
+    font-size: 29px;
+    margin: 15px auto;
+    max-width: 600px;
+}
+
+.precos-texto p {
+    color: #68574c;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.precos-valores {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 250px));
+    justify-content: center;
+    gap: 25px;
+    margin: 35px auto 20px;
+}
+
+.preco-item {
+    background-color: #fff;
+    padding: 28px 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.preco-item span {
+    color: #766052;
+    font-size: 14px;
+}
+
+.preco-item strong {
+    color: var(--marrom);
+    font-size: 29px;
+}
+
+.preco-item small {
+    color: #888;
+    font-size: 12px;
+}
+
+.precos-observacao {
+    color: #766052;
+    font-size: 12px;
+    margin-top: 25px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   ENTREGA
+========================================= */
+
+.produtos-entrega {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding: 45px 8%;
+    background-color: #fff;
+}
+
+.entrega-icone {
+    color: #ad774c;
+    font-size: 45px;
+}
+
+.produtos-entrega h3 {
+    color: var(--marrom-escuro);
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.produtos-entrega p {
+    color: #71645a;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* =========================================
+   COLEÇÃO TRADICIONAL
+========================================= */
+
+.divisao-colecoes {
+    text-align: center;
+    padding: 75px 6% 35px;
+    background-color: var(--creme);
+}
+
+.colecao-tradicional {
+    padding: 30px 6% 75px;
+    background-color: var(--creme);
+}
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+/* TABLETS */
+
+@media (max-width: 1000px) {
+
+    .produtos-estacoes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .produto-estacao-imagem {
+        height: 280px;
+    }
+
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+
+    .produtos-apresentacao {
+        padding: 55px 20px;
+    }
+
+    .produtos-apresentacao h1 {
+        font-size: 32px;
+    }
+
+    .colecao-estacoes {
+        padding: 50px 20px;
+    }
+
+    .colecao-titulo h2,
+    .divisao-colecoes h2 {
+        font-size: 28px;
+    }
+
+    .produtos-estacoes {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .produto-estacao-imagem {
+        height: 280px;
+    }
+
+    .produtos-precos {
+        padding: 50px 20px;
+    }
+
+    .precos-texto h2 {
+        font-size: 24px;
+    }
+
+    .precos-valores {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .produtos-entrega {
+        align-items: flex-start;
+        padding: 35px 22px;
+        gap: 15px;
+    }
+
+    .entrega-icone {
+        font-size: 32px;
+    }
+
+    .produtos-entrega h3 {
+        font-size: 18px;
+    }
+
+    .divisao-colecoes {
+        padding: 55px 20px 25px;
+    }
+
+    .colecao-tradicional {
+        padding: 20px 20px 50px;
+    }
+
+}
+
