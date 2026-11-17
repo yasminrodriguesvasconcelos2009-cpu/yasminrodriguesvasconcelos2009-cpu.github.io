@@ -3311,3 +3311,140 @@ body {
         padding: 20px;
     }
 }
+
+/* =========================================
+   NEWSLETTER E REDES SOCIAIS
+========================================= */
+
+.newsletter {
+    width: 100%;
+    padding: 30px 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 35px;
+    flex-wrap: wrap;
+
+    box-sizing: border-box;
+    background-color: var(--creme);
+}
+
+.newsletter-texto {
+    flex: 1 1 220px;
+    min-width: 0;
+}
+
+.newsletter-texto p {
+    margin: 0;
+    color: var(--preto);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.newsletter-form {
+    flex: 1 1 350px;
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.newsletter-form label {
+    color: var(--preto);
+    white-space: nowrap;
+}
+
+.newsletter-campo {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+
+    height: 48px;
+}
+
+.newsletter-campo input {
+    flex: 1;
+    min-width: 0;
+
+    padding: 0 15px;
+
+    border: 1px solid var(--preto);
+    border-radius: 8px 0 0 8px;
+
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.newsletter-campo button {
+    width: 70px;
+    flex-shrink: 0;
+
+    border: 1px solid var(--preto);
+    border-left: none;
+
+    border-radius: 0 8px 8px 0;
+
+    background-color: var(--terracota);
+    color: white;
+
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.newsletter-campo button:hover {
+    background-color: var(--dourado);
+    color: var(--preto);
+}
+
+.redes-sociais {
+    flex: 0 1 180px;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.redes-sociais span {
+    color: var(--preto);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.redes-sociais a {
+    color: var(--terracota);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.redes-sociais a:hover {
+    color: var(--dourado);
+}
+
+@media (max-width: 800px) {
+    .newsletter {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 25px;
+        padding: 30px 25px;
+    }
+
+    .newsletter-texto,
+    .newsletter-form,
+    .redes-sociais {
+        width: 100%;
+        flex: 1 1 auto;
+    }
+
+    .newsletter-form {
+        flex-wrap: wrap;
+    }
+}
