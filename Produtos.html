@@ -1,401 +1,560 @@
+
 <!DOCTYPE html>
-  <html lang="pt-BR">
+<html lang="pt-BR">
 
-  <head>
-
+<head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Produtos | Vela Vibe</title>
 
     <link rel="stylesheet" href="css/style.css">
+</head>
 
-  </head>
+<body>
 
-
-  <body>
-
-
-  <header class="cabecalho">
+<header class="cabecalho">
 
     <div class="logo">
-      <img src="img/logo.jpg" alt="Logo Vela Vibe">
+        <img src="img/logo.jpg" alt="Logo Vela Vibe">
     </div>
 
-
     <nav class="menu">
-      <a href="index.html">Início</a>
-      <a href="Produtos.html">Produtos</a>
-      <a href="atacado.html">Atacado</a>
-      <a href="sobre.html">Sobre nós</a>
-      <a href="contato.html">Contato</a>
+        <a href="index.html">Início</a>
+        <a href="Produtos.html" class="ativo">Produtos</a>
+        <a href="atacado.html">Atacado</a>
+        <a href="sobre.html">Sobre nós</a>
+        <a href="contato.html">Contato</a>
     </nav>
 
     <a href="CrieSuaVela.html" class="criar-vela" title="Crie sua vela">
-      <img src="img/criarsuavela.jpg" alt="Crie sua vela">
+        <img src="img/criarsuavela.jpg" alt="Crie sua vela">
     </a>
 
     <a href="Acompanhe.html" class="acompanhar-entrega" title="Acompanhar entrega">
-      <img src="img/icone2.jpg" alt="Acompanhar entrega">
+        <img src="img/icone2.jpg" alt="Acompanhar entrega">
     </a>
 
     <a href="Carrinho.html" class="carrinho">
-      <img src="img/carrinho.jpg" alt="Carrinho">
+        <img src="img/carrinho.jpg" alt="Carrinho">
     </a>
 
-  </header>
+</header>
 
 
+<main class="pagina-produtos">
 
-  <main>
+    <!-- APRESENTAÇÃO -->
 
+    <section class="produtos-apresentacao">
 
-    <section class="pagina-produtos">
+        <p class="produtos-subtitulo">DESCUBRA A SUA ESSÊNCIA</p>
 
-      <div class="titulo-secao">
+        <h1>Nossas coleções</h1>
 
-        <p>NOSSA COLEÇÃO</p>
-
-        <h1>Velas artesanais</h1>
-
-        <span>
-                Encontre o aroma perfeito para o seu momento.
-            </span>
-
-      </div>
-
-
-
-      <div class="produtos-grid">
-
-        <!-- PRODUTO 1 -->
-
-        <div class="produto">
-
-          <div class="produto-imagem">
-            <img src="img/baunilha.jpg" alt="Vela de Baunilha">
-          </div>
-
-          <h3>Vela de Baunilha</h3>
-
-          <p>R$ 30,00</p>
-
-          <a href="Compra.html?produto=baunilha" class="botao-compra">
-            Ver produto
-          </a>
-
-        </div>
-
-
-        <!-- PRODUTO 2 -->
-
-        <div class="produto">
-
-          <div class="produto-imagem">
-            <img src="img/lavanda.jpg" alt="Vela de Lavanda">
-          </div>
-
-          <h3>Vela de Lavanda</h3>
-
-          <p>R$ 30,00</p>
-
-          <a href="Compra.html?produto=lavanda" class="botao-compra">
-            Ver produto
-          </a>
-
-        </div>
-
-
-        <!-- PRODUTO 3 -->
-
-        <div class="produto">
-
-          <div class="produto-imagem">
-            <img src="img/rosas.jpg" alt="Vela de Rosas">
-          </div>
-
-          <h3>Vela de Rosas</h3>
-
-          <p>R$ 30,00</p>
-
-          <a href="Compra.html?produto=rosas" class="botao-compra">
-            Ver produto
-          </a>
-
-        </div>
-
-
-        <!-- PRODUTO 4 -->
-
-        <div class="produto">
-
-          <div class="produto-imagem">
-            <img src="img/canela.jpg" alt="Vela de Canela">
-          </div>
-
-          <h3>Vela de Canela</h3>
-
-          <p>R$ 30,00</p>
-
-          <a href="Compra.html?produto=canela" class="botao-compra">
-            Ver produto
-          </a>
-
-        </div>
-
-
-        <!-- PRODUTO 5 -->
-
-        <div class="produto">
-
-          <div class="produto-imagem">
-            <img src="img/coco.jpg" alt="Vela de Coco">
-          </div>
-
-          <h3>Vela de Coco</h3>
-
-          <p>R$ 30,00</p>
-
-          <a href="Compra.html?produto=coco" class="botao-compra">
-            Ver produto
-          </a>
-
-        </div>
-
-
-        <!-- PRODUTO 6 -->
-
-        <div class="produto">
-
-          <div class="produto-imagem">
-            <img src="img/jasmim.jpg" alt="Vela de Jasmim">
-          </div>
-
-          <h3>Vela de Jasmim</h3>
-
-          <p>R$ 30,00</p>
-
-          <a href="Compra.html?produto=jasmim" class="botao-compra">
-            Ver produto
-          </a>
-
-        </div>
-
-      </div>
+        <p>
+            Cada aroma conta uma história e transforma
+            pequenos momentos em experiências especiais.
+        </p>
 
     </section>
 
-  </main>
 
-   <footer class="rodape">
+    <!-- COLEÇÃO ESTAÇÕES -->
+
+    <section class="colecao-estacoes">
+
+        <div class="colecao-titulo">
+
+            <span>UMA EXPERIÊNCIA PARA CADA ESTAÇÃO</span>
+
+            <h2>Coleção Estações</h2>
+
+            <p>
+                Quatro estações, quatro essências e infinitas
+                maneiras de aproveitar cada momento.
+            </p>
+
+        </div>
 
 
-        <!-- NEWSLETTER -->
+        <div class="produtos-estacoes">
 
-        <div class="newsletter">
+            <!-- VERÃO -->
 
-            <div class="newsletter-texto">
+            <article class="produto-estacao verao">
 
-                <p>
-                    Fique por dentro das nossas novidades e
-                    promoções exclusivas.
-                </p>
+                <div class="produto-estacao-imagem">
+                    <img src="img/verao.jpg" alt="Vela da Coleção Verão">
+                </div>
 
-            </div>
+                <div class="produto-estacao-conteudo">
 
+                    <span class="estacao-etiqueta">VERÃO</span>
 
-            <!-- FORMULÁRIO DE NEWSLETTER -->
+                    <h3>Vela Verão</h3>
 
-            <div class="newsletter-form">
+                    <p class="estacao-aroma">
+                        Flor de Laranjeira
+                    </p>
 
-                <label for="newsletter-email">
-                    E-mail
-                </label>
+                    <p class="estacao-descricao">
+                        Energia, leveza e frescor para iluminar seus dias.
+                    </p>
 
-                <div class="newsletter-campo">
-
-                    <input
-                        type="email"
-                        id="newsletter-email"
-                        name="newsletter-email"
-                        placeholder="Digite seu e-mail"
-                    >
-
-                    <button type="button"
-                            aria-label="Enviar e-mail">
-
-                        ➤
-
-                    </button>
+                    <a href="Compra.html?produto=verao"
+                       class="botao-compra">
+                        Ver produto
+                    </a>
 
                 </div>
 
+            </article>
+
+
+            <!-- OUTONO -->
+
+            <article class="produto-estacao outono">
+
+                <div class="produto-estacao-imagem">
+                    <img src="img/outono.jpg" alt="Vela da Coleção Outono">
+                </div>
+
+                <div class="produto-estacao-conteudo">
+
+                    <span class="estacao-etiqueta">OUTONO</span>
+
+                    <h3>Vela Outono</h3>
+
+                    <p class="estacao-aroma">
+                        Canela e Cravo
+                    </p>
+
+                    <p class="estacao-descricao">
+                        Aconchego, equilíbrio e transformação.
+                    </p>
+
+                    <a href="Compra.html?produto=outono"
+                       class="botao-compra">
+                        Ver produto
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- INVERNO -->
+
+            <article class="produto-estacao inverno">
+
+                <div class="produto-estacao-imagem">
+                    <img src="img/inverno.jpg" alt="Vela da Coleção Inverno">
+                </div>
+
+                <div class="produto-estacao-conteudo">
+
+                    <span class="estacao-etiqueta">INVERNO</span>
+
+                    <h3>Vela Inverno</h3>
+
+                    <p class="estacao-aroma">
+                        Lavanda
+                    </p>
+
+                    <p class="estacao-descricao">
+                        Conforto, calma e momentos de tranquilidade.
+                    </p>
+
+                    <a href="Compra.html?produto=inverno"
+                       class="botao-compra">
+                        Ver produto
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRIMAVERA -->
+
+            <article class="produto-estacao primavera">
+
+                <div class="produto-estacao-imagem">
+                    <img src="img/primavera.jpg" alt="Vela da Coleção Primavera">
+                </div>
+
+                <div class="produto-estacao-conteudo">
+
+                    <span class="estacao-etiqueta">PRIMAVERA</span>
+
+                    <h3>Vela Primavera</h3>
+
+                    <p class="estacao-aroma">
+                        Flor de Cerejeira
+                    </p>
+
+                    <p class="estacao-descricao">
+                        Renovação, alegria e a beleza de florescer.
+                    </p>
+
+                    <a href="Compra.html?produto=primavera"
+                       class="botao-compra">
+                        Ver produto
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- PREÇOS -->
+
+    <section class="produtos-precos">
+
+        <div class="precos-texto">
+
+            <span>NOSSAS CONDIÇÕES</span>
+
+            <h2>Um momento especial merece uma Vela Vibe.</h2>
+
+            <p>
+                Todas as nossas velas possuem 150 ml e são
+                produzidas para tornar seus momentos ainda mais especiais.
+            </p>
+
+        </div>
+
+        <div class="precos-valores">
+
+            <div class="preco-item">
+
+                <span>De 1 a 11 velas</span>
+
+                <strong>R$ 30,00</strong>
+
+                <small>Por unidade</small>
+
             </div>
 
+            <div class="preco-item">
 
-            <!-- INSTAGRAM -->
+                <span>A partir de 12 velas</span>
 
-            <div class="redes-sociais">
+                <strong>R$ 25,00</strong>
 
-                <span>SIGA-NOS</span>
-
-                <a href="https://www.instagram.com/vela.vibe_/"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   title="Instagram Vela Vibe"
-                   aria-label="Visite o Instagram da Vela Vibe">
-
-                    <img src="img/instagram.png"
-                         alt="Instagram Vela Vibe">
-
-                </a>
+                <small>Por unidade</small>
 
             </div>
 
         </div>
 
+        <p class="precos-observacao">
+            O valor final do pedido considera a quantidade
+            de velas e o frete correspondente à região de entrega.
+        </p>
 
-        <!-- INFORMAÇÕES DO RODAPÉ -->
-
-        <div class="rodape-conteudo">
-
-
-            <!-- LOGO -->
-
-            <div class="rodape-coluna logo-rodape">
-
-                <img src="img/Logo.jpeg"
-                     alt="Vela Vibe">
-
-                <p>
-                    © 2026 Vela Vibe
-                </p>
-
-            </div>
+    </section>
 
 
-            <!-- SOBRE -->
+    <!-- FRETE -->
 
-            <div class="rodape-coluna">
+    <section class="produtos-entrega">
 
-                <p>
-                    Oferecemos velas de alta qualidade,
-                    feitas com ceras naturais e fragrâncias
-                    cuidadosamente escolhidas para uma
-                    experiência única.
-                </p>
+        <div class="entrega-icone">
+            ✦
+        </div>
 
-                <p>
-                    ☎ +55 11 91959-4341
-                </p>
+        <div>
 
-                <p>
-                    ✉ velavibe2026@gmail.com
-                </p>
+            <h3>Levamos a Vela Vibe até você!</h3>
 
-            </div>
+            <p>
+                Nesta simulação, disponibilizamos opções de entrega
+                para São Paulo (capital) e Santo André (SP).
+            </p>
+
+            <p>
+                O valor do frete será apresentado durante a simulação
+                da compra, de acordo com a localidade escolhida.
+            </p>
+
+        </div>
+
+    </section>
 
 
-            <!-- PRODUTOS -->
+    <!-- DIVISÃO ENTRE COLEÇÕES -->
 
-            <div class="rodape-coluna">
+    <div class="divisao-colecoes">
 
-                <h3>PRODUTOS</h3>
+        <span>VELAS QUE COMBINAM COM VOCÊ</span>
 
-                <a href="Produtos.html">
-                    Nosso catálogo
+        <h2>Coleção Tradicional</h2>
+
+        <p>
+            Seus aromas favoritos, para acompanhar todos os dias.
+        </p>
+
+    </div>
+
+
+    <!-- COLEÇÃO TRADICIONAL -->
+
+    <section class="colecao-tradicional">
+
+        <div class="produtos-grid">
+
+
+            <!-- BAUNILHA -->
+
+            <article class="produto">
+
+                <div class="produto-imagem">
+                    <img src="img/baunilha.jpg" alt="Vela de Baunilha">
+                </div>
+
+                <h3>Vela de Baunilha</h3>
+
+                <p>R$ 30,00</p>
+
+                <a href="Compra.html?produto=baunilha"
+                   class="botao-compra">
+                    Ver produto
                 </a>
 
-                <a href="CrieSuaVela.html">
-                    Crie sua vela
+            </article>
+
+
+            <!-- LAVANDA -->
+
+            <article class="produto">
+
+                <div class="produto-imagem">
+                    <img src="img/lavanda.jpg" alt="Vela de Lavanda">
+                </div>
+
+                <h3>Vela de Lavanda</h3>
+
+                <p>R$ 30,00</p>
+
+                <a href="Compra.html?produto=lavanda"
+                   class="botao-compra">
+                    Ver produto
                 </a>
 
-                <a href="atacado.html">
-                    Atacado
+            </article>
+
+
+            <!-- ROSAS -->
+
+            <article class="produto">
+
+                <div class="produto-imagem">
+                    <img src="img/rosas.jpg" alt="Vela de Rosas">
+                </div>
+
+                <h3>Vela de Rosas</h3>
+
+                <p>R$ 30,00</p>
+
+                <a href="Compra.html?produto=rosas"
+                   class="botao-compra">
+                    Ver produto
                 </a>
 
-                <a href="evento.html">
-                    Eventos
+            </article>
+
+
+            <!-- CANELA -->
+
+            <article class="produto">
+
+                <div class="produto-imagem">
+                    <img src="img/canela.jpg" alt="Vela de Canela">
+                </div>
+
+                <h3>Vela de Canela</h3>
+
+                <p>R$ 30,00</p>
+
+                <a href="Compra.html?produto=canela"
+                   class="botao-compra">
+                    Ver produto
                 </a>
 
-            </div>
+            </article>
 
 
-            <!-- ACESSO RÁPIDO -->
+            <!-- COCO -->
 
-            <div class="rodape-coluna">
+            <article class="produto">
 
-                <h3>ACESSO RÁPIDO</h3>
+                <div class="produto-imagem">
+                    <img src="img/coco.jpg" alt="Vela de Coco">
+                </div>
 
-                <a href="sobre.html">
-                    Sobre nós
+                <h3>Vela de Coco</h3>
+
+                <p>R$ 30,00</p>
+
+                <a href="Compra.html?produto=coco"
+                   class="botao-compra">
+                    Ver produto
                 </a>
 
-                <a href="contato.html">
-                    Contato
+            </article>
+
+
+            <!-- JASMIM -->
+
+            <article class="produto">
+
+                <div class="produto-imagem">
+                    <img src="img/jasmim.jpg" alt="Vela de Jasmim">
+                </div>
+
+                <h3>Vela de Jasmim</h3>
+
+                <p>R$ 30,00</p>
+
+                <a href="Compra.html?produto=jasmim"
+                   class="botao-compra">
+                    Ver produto
                 </a>
 
-                <a href="Carrinho.html">
-                    Meu carrinho
-                </a>
+            </article>
 
-                <a href="Acompanhe.html">
-                    Acompanhar entrega
-                </a>
+        </div>
 
-            </div>
+    </section>
+
+</main>
 
 
-            <!-- POLÍTICAS -->
+<!-- RODAPÉ -->
 
-            <div class="rodape-coluna">
+<footer class="rodape">
 
-                <h3>POLÍTICAS</h3>
+    <div class="newsletter">
 
-                <a href="#">
-                    Perguntas frequentes
-                </a>
+        <div class="newsletter-texto">
 
-                <a href="#">
-                    Política de privacidade
-                </a>
+            <p>
+                Fique por dentro das nossas novidades e
+                promoções exclusivas.
+            </p>
 
-                <a href="#">
-                    Termos de uso
-                </a>
+        </div>
 
-            </div>
+        <div class="newsletter-form">
+
+            <label for="email">E-mail</label>
+
+            <input type="email"
+                   id="email"
+                   name="email"
+                   placeholder="Digite seu e-mail">
+
+            <button type="button">➤</button>
+
+        </div>
+
+        <div class="redes-sociais">
+
+            <span>SIGA-NOS</span>
+
+            <a href="#" aria-label="Instagram">◎</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="rodape-conteudo">
+
+        <div class="rodape-coluna logo-rodape">
+
+            <img src="img/logo.jpg" alt="Vela Vibe">
+
+            <p>© 2026 Vela Vibe</p>
 
         </div>
 
 
-        <!-- COPYRIGHT -->
+        <div class="rodape-coluna">
 
-        <div class="rodape-final">
+            <p>
+                Oferecemos velas de alta qualidade,
+                feitas com ceras naturais e fragrâncias
+                cuidadosamente escolhidas para uma
+                experiência única.
+            </p>
 
-            <span>
-                © 2026 Vela Vibe
-            </span>
+            <p>☎ (11) 91959-4341</p>
 
-            <span>
-                Todos os direitos reservados.
-            </span>
+            <p>✉ velavibe2026@gmail.com</p>
 
         </div>
 
-    </footer>
+
+        <div class="rodape-coluna">
+
+            <h3>PRODUTOS</h3>
+
+            <a href="Produtos.html">Nosso catálogo</a>
+
+            <a href="CrieSuaVela.html">Crie sua vela</a>
+
+            <a href="atacado.html">Atacado</a>
+
+        </div>
 
 
-    <!-- JAVASCRIPT -->
+        <div class="rodape-coluna">
 
-    <script src="js/script.js"></script>
+            <h3>ACESSO RÁPIDO</h3>
+
+            <a href="sobre.html">Sobre nós</a>
+
+            <a href="contato.html">Contato</a>
+
+            <a href="Carrinho.html">Meu carrinho</a>
+
+        </div>
+
+
+        <div class="rodape-coluna">
+
+            <h3>POLÍTICAS</h3>
+
+            <a href="#">Perguntas frequentes</a>
+
+            <a href="#">Política de privacidade</a>
+
+            <a href="#">Termos de uso</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="rodape-final">
+
+        <span>© 2026 Vela Vibe</span>
+
+        <span>Todos os direitos reservados.</span>
+
+    </div>
+
+</footer>
+
+
+<script src="js/script.js"></script>
 
 </body>
-
-</html>
-  <script src="js/script.js"></script>
-
-  </body>
-
 </html>
