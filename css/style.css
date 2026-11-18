@@ -4034,3 +4034,293 @@ a {
     }
 
 }
+
+/* =========================================
+   PÁGINA DE COMPRA - VELA VIBE
+========================================= */
+
+.pagina-compra {
+    width: 100%;
+    padding: 65px 7%;
+    background-color: #f4e9d9;
+}
+
+/* ORGANIZAÇÃO PRINCIPAL */
+
+.produto-detalhe {
+    max-width: 1250px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+}
+
+/* IMAGEM DO PRODUTO */
+
+.produto-imagem-grande {
+    width: 100%;
+    height: 620px;
+    overflow: hidden;
+    border-radius: 14px;
+    background-color: #fff;
+}
+
+.produto-imagem-grande img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.produto-imagem-grande:hover img {
+    transform: scale(1.035);
+}
+
+/* CARTÃO DE INFORMAÇÕES */
+
+.produto-informacoes {
+    min-width: 0;
+    padding: 42px;
+    background-color: #fff;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(75, 48, 30, 0.07);
+}
+
+/* CATEGORIA */
+
+.categoria-produto {
+    margin: 0 0 13px;
+    color: #a56b48;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* NOME */
+
+.produto-informacoes h1 {
+    margin: 0 0 20px;
+    color: #29221d;
+    font-size: clamp(30px, 3vw, 43px);
+    line-height: 1.15;
+}
+
+/* DESCRIÇÃO */
+
+.descricao-produto {
+    margin: 0 0 28px;
+    color: #625950;
+    font-size: 15px;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+/* PREÇOS */
+
+.produto-precos {
+    padding: 22px 0;
+    border-top: 1px solid #eee4da;
+    border-bottom: 1px solid #eee4da;
+}
+
+.produto-precos h2 {
+    margin: 0 0 5px;
+    color: #9b6040;
+    font-size: 32px;
+}
+
+.preco-unitario {
+    margin: 0;
+    color: #81766c;
+    font-size: 13px;
+}
+
+/* DESCONTO */
+
+.aviso-desconto {
+    margin-top: 20px;
+    padding: 17px 19px;
+    background-color: #f8f1e9;
+    border-left: 3px solid #b47750;
+    border-radius: 5px;
+}
+
+.aviso-desconto p {
+    margin: 6px 0;
+    color: #655448;
+    font-size: 13px;
+}
+
+.aviso-desconto p:first-child {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #8c5739;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* QUANTIDADE */
+
+.quantidade {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.quantidade label {
+    color: #39302a;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.quantidade input {
+    width: 85px;
+    padding: 11px;
+    border: 1px solid #d9c9b9;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #39302a;
+    font-size: 15px;
+    text-align: center;
+    outline: none;
+}
+
+.quantidade input:focus {
+    border-color: #a56b48;
+}
+
+/* SUBTOTAL */
+
+.produto-subtotal {
+    margin: 20px 0;
+    padding: 15px 18px;
+    background-color: #faf7f3;
+    border-radius: 7px;
+}
+
+.produto-subtotal p {
+    margin: 5px 0;
+    color: #625950;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.produto-subtotal strong {
+    color: #30251e;
+    font-size: 17px;
+}
+
+#mensagem-desconto {
+    color: #9b6848;
+    font-size: 12px;
+}
+
+/* INFORMAÇÕES DE ENTREGA */
+
+.informacao-frete {
+    margin: 22px 0;
+    padding-left: 15px;
+    border-left: 2px solid #d5b394;
+}
+
+.informacao-frete p {
+    margin: 5px 0;
+    color: #75695e;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.informacao-frete p:first-child {
+    color: #49392e;
+    font-size: 14px;
+}
+
+/* BOTÃO */
+
+.botao-adicionar {
+    width: 100%;
+    padding: 17px 20px;
+    border: none;
+    border-radius: 7px;
+    background-color: #a96743;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.botao-adicionar:hover {
+    background-color: #895237;
+    transform: translateY(-2px);
+}
+
+/* VOLTAR */
+
+.voltar-produtos {
+    display: inline-block;
+    margin-top: 20px;
+    color: #9b6040;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.voltar-produtos:hover {
+    color: #593b2a;
+    text-decoration: underline;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+
+    .pagina-compra {
+        padding: 40px 5%;
+    }
+
+    .produto-detalhe {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        max-width: 650px;
+    }
+
+    .produto-imagem-grande {
+        height: 450px;
+    }
+
+    .produto-informacoes {
+        padding: 30px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .pagina-compra {
+        padding: 25px 15px;
+    }
+
+    .produto-imagem-grande {
+        height: 330px;
+    }
+
+    .produto-informacoes {
+        padding: 23px;
+    }
+
+    .produto-informacoes h1 {
+        font-size: 30px;
+    }
+
+    .descricao-produto {
+        font-size: 14px;
+    }
+
+}
