@@ -3753,3 +3753,284 @@ a {
 
 }
 
+
+/* =========================================
+   CARRINHO - VELA VIBE
+   Identidade visual da página de finalização
+========================================= */
+
+.pagina-carrinho {
+    min-height: 70vh;
+    padding: 55px 7%;
+    background-color: #f5e9d9;
+}
+
+/* TÍTULO */
+
+.pagina-carrinho .titulo-secao {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.pagina-carrinho .titulo-secao > p {
+    color: #967653;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.pagina-carrinho .titulo-secao h1 {
+    font-size: 32px;
+    color: #211b16;
+    margin-bottom: 10px;
+}
+
+.pagina-carrinho .titulo-secao span {
+    color: #74685c;
+    font-size: 15px;
+}
+
+/* ORGANIZAÇÃO DAS COLUNAS */
+
+.carrinho-conteudo {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.9fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+/* LISTA DE PRODUTOS */
+
+#lista-carrinho {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    min-width: 0;
+}
+
+#lista-carrinho > p {
+    background-color: #ffffff;
+    padding: 35px;
+    border-radius: 12px;
+    color: #74685c;
+    text-align: center;
+}
+
+/* CARTÃO DE CADA PRODUTO */
+
+.item-carrinho {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 3px 15px rgba(75, 54, 32, 0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.imagem-item-carrinho {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 8px;
+    background-color: #faf7f2;
+}
+
+.item-carrinho h3 {
+    color: #282018;
+    font-size: 19px;
+    margin: 0;
+}
+
+.item-carrinho p {
+    color: #65594d;
+    font-size: 14px;
+    margin: 0;
+}
+
+.item-carrinho > div p {
+    margin-bottom: 7px;
+}
+
+/* CONTROLE DE QUANTIDADE */
+
+.controle-quantidade {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 5px 0;
+}
+
+.controle-quantidade button {
+    width: 34px;
+    height: 34px;
+    border: 1px solid #cbb99f;
+    border-radius: 6px;
+    background-color: #f5e9d9;
+    color: #35291e;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.controle-quantidade span {
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* BOTÃO REMOVER */
+
+.item-carrinho .remover {
+    align-self: flex-start;
+    border: none;
+    background: none;
+    color: #98604e;
+    font-size: 13px;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 4px 0;
+}
+
+/* RESUMO DA COMPRA */
+
+.resumo-carrinho {
+    background-color: #ffffff;
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(75, 54, 32, 0.07);
+    position: sticky;
+    top: 25px;
+}
+
+.resumo-carrinho h2 {
+    color: #211b16;
+    font-size: 21px;
+    margin: 0 0 25px;
+}
+
+.resumo-carrinho > p {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    color: #4d4339;
+    font-size: 15px;
+    margin: 18px 0;
+}
+
+.resumo-carrinho > p span {
+    font-weight: 600;
+    text-align: right;
+}
+
+/* REGIÃO */
+
+.campo-regiao {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin: 25px 0;
+}
+
+.campo-regiao label {
+    color: #35291e;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.campo-regiao select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d5c9ba;
+    border-radius: 7px;
+    background-color: #ffffff;
+    color: #35291e;
+    font-size: 14px;
+}
+
+/* TOTAL */
+
+.resumo-total {
+    border-top: 1px solid #d9cfc2;
+    margin-top: 22px;
+    padding-top: 20px;
+}
+
+.resumo-total p {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    color: #211b16;
+    font-size: 16px;
+}
+
+.resumo-total strong {
+    font-size: 23px;
+    color: #211b16;
+}
+
+/* BOTÃO FINALIZAR */
+
+#finalizar-compra {
+    width: 100%;
+    padding: 15px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 7px;
+    background-color: #806344;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#finalizar-compra:hover {
+    background-color: #624b32;
+}
+
+/* AVISO */
+
+.aviso-frete {
+    color: #827568;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 18px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 800px) {
+
+    .pagina-carrinho {
+        padding: 40px 5%;
+    }
+
+    .carrinho-conteudo {
+        grid-template-columns: 1fr;
+    }
+
+    .resumo-carrinho {
+        position: static;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .pagina-carrinho .titulo-secao h1 {
+        font-size: 27px;
+    }
+
+    .item-carrinho {
+        padding: 16px;
+    }
+
+    .resumo-carrinho {
+        padding: 22px;
+    }
+
+}
