@@ -1,16 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Carrinho | Vela Vibe</title>
 
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
@@ -22,15 +20,10 @@
     </div>
 
     <nav class="menu">
-
         <a href="index.html">Início</a>
-
         <a href="Produtos.html">Produtos</a>
-
         <a href="sobre.html">Sobre nós</a>
-
         <a href="contato.html">Contato</a>
-
     </nav>
 
     <a href="Carrinho.html" class="carrinho">
@@ -57,6 +50,8 @@
 
         <div class="carrinho-conteudo">
 
+            <!-- PRODUTOS DO CARRINHO -->
+
             <div id="lista-carrinho">
 
                 <p>Seu carrinho está vazio.</p>
@@ -64,23 +59,85 @@
             </div>
 
 
+            <!-- RESUMO DA COMPRA -->
+
             <div class="resumo-carrinho">
 
                 <h2>Resumo da compra</h2>
 
                 <p>
-                    Subtotal:
+                    Subtotal dos produtos:
                     <span id="subtotal">R$ 0,00</span>
                 </p>
 
+
+                <!-- REGIÃO DE ENTREGA -->
+
+                <div class="campo-regiao">
+
+                    <label for="regiao-frete">
+                        Região de entrega:
+                    </label>
+
+                    <select id="regiao-frete">
+
+                        <option value="">
+                            Selecione sua região
+                        </option>
+
+                        <option value="sudeste" data-frete="35">
+                            Sudeste - R$ 35,00
+                        </option>
+
+                        <option value="sul" data-frete="45">
+                            Sul - R$ 45,00
+                        </option>
+
+                        <option value="centro-oeste" data-frete="50">
+                            Centro-Oeste - R$ 50,00
+                        </option>
+
+                        <option value="nordeste" data-frete="60">
+                            Nordeste - R$ 60,00
+                        </option>
+
+                        <option value="norte" data-frete="75">
+                            Norte - R$ 75,00
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- VALOR DO FRETE -->
+
                 <p>
-                    Total:
-                    <strong id="total">R$ 0,00</strong>
+                    Frete:
+                    <span id="valor-frete">R$ 0,00</span>
                 </p>
 
-                <button id="finalizar-compra">
+
+                <!-- TOTAL -->
+
+                <div class="resumo-total">
+
+                    <p>
+                        Total da compra:
+                        <strong id="total">R$ 0,00</strong>
+                    </p>
+
+                </div>
+
+
+                <button id="finalizar-compra" type="button">
                     Finalizar compra
                 </button>
+
+                <p class="aviso-frete">
+                    O valor do frete é fixo por pedido e não varia
+                    conforme a quantidade de velas.
+                </p>
 
             </div>
 
@@ -94,157 +151,249 @@
 <footer class="rodape">
 
     <!-- NEWSLETTER -->
+
     <div class="newsletter">
 
         <div class="newsletter-texto">
+
             <p>
                 Fique por dentro das nossas novidades e
                 promoções exclusivas.
             </p>
+
         </div>
+
 
         <div class="newsletter-form">
 
             <label for="newsletter-email">E-mail</label>
 
             <input
-                    type="email"
-                    id="newsletter-email"
-                    name="newsletter-email"
-                    placeholder="Digite seu e-mail"
+                type="email"
+                id="newsletter-email"
+                name="newsletter-email"
+                placeholder="Digite seu e-mail"
             >
+
             <button type="button">
                 ➤
             </button>
+
         </div>
 
+
         <div class="redes-sociais">
+
             <span>SIGA-NOS</span>
 
             <a href="#" aria-label="Instagram">
                 ◎
             </a>
+
         </div>
 
     </div>
 
 
     <!-- INFORMAÇÕES -->
-    <div class="rodape-conteudo">
 
-        <!-- LOGO -->
-        <div class="rodape-coluna logo-rodape">
+    <footer class="rodape">
 
-            <img
-                    src="img/logo.jpg"
-                    alt="Vela Vibe"
-            >
 
-            <p>
+        <!-- NEWSLETTER -->
+
+        <div class="newsletter">
+
+            <div class="newsletter-texto">
+
+                <p>
+                    Fique por dentro das nossas novidades e
+                    promoções exclusivas.
+                </p>
+
+            </div>
+
+
+            <!-- FORMULÁRIO DE NEWSLETTER -->
+
+            <div class="newsletter-form">
+
+                <label for="newsletter-email">
+                    E-mail
+                </label>
+
+                <div class="newsletter-campo">
+
+                    <input
+                        type="email"
+                        id="newsletter-email"
+                        name="newsletter-email"
+                        placeholder="Digite seu e-mail"
+                    >
+
+                    <button type="button"
+                            aria-label="Enviar e-mail">
+
+                        ➤
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- INSTAGRAM -->
+
+            <div class="redes-sociais">
+
+                <span>SIGA-NOS</span>
+
+                <a href="https://www.instagram.com/vela.vibe_/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   title="Instagram Vela Vibe"
+                   aria-label="Visite o Instagram da Vela Vibe">
+
+                    <img src="img/instagram.png"
+                         alt="Instagram Vela Vibe">
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- INFORMAÇÕES DO RODAPÉ -->
+
+        <div class="rodape-conteudo">
+
+
+            <!-- LOGO -->
+
+            <div class="rodape-coluna logo-rodape">
+
+                <img src="img/Logo.jpeg"
+                     alt="Vela Vibe">
+
+                <p>
+                    © 2026 Vela Vibe
+                </p>
+
+            </div>
+
+
+            <!-- SOBRE -->
+
+            <div class="rodape-coluna">
+
+                <p>
+                    Oferecemos velas de alta qualidade,
+                    feitas com ceras naturais e fragrâncias
+                    cuidadosamente escolhidas para uma
+                    experiência única.
+                </p>
+
+                <p>
+                    ☎ +55 11 91959-4341
+                </p>
+
+                <p>
+                    ✉ velavibe2026@gmail.com
+                </p>
+
+            </div>
+
+
+            <!-- PRODUTOS -->
+
+            <div class="rodape-coluna">
+
+                <h3>PRODUTOS</h3>
+
+                <a href="Produtos.html">
+                    Nosso catálogo
+                </a>
+
+                <a href="CrieSuaVela.html">
+                    Crie sua vela
+                </a>
+
+                <a href="atacado.html">
+                    Atacado
+                </a>
+
+                <a href="evento.html">
+                    Eventos
+                </a>
+
+            </div>
+
+
+            <!-- ACESSO RÁPIDO -->
+
+            <div class="rodape-coluna">
+
+                <h3>ACESSO RÁPIDO</h3>
+
+                <a href="sobre.html">
+                    Sobre nós
+                </a>
+
+                <a href="contato.html">
+                    Contato
+                </a>
+
+                <a href="Carrinho.html">
+                    Meu carrinho
+                </a>
+
+                <a href="Acompanhe.html">
+                    Acompanhar entrega
+                </a>
+
+            </div>
+
+
+            <!-- POLÍTICAS -->
+
+            <div class="rodape-coluna">
+
+                <h3>POLÍTICAS</h3>
+
+                <a href="#">
+                    Perguntas frequentes
+                </a>
+
+                <a href="#">
+                    Política de privacidade
+                </a>
+
+                <a href="#">
+                    Termos de uso
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- COPYRIGHT -->
+
+        <div class="rodape-final">
+
+            <span>
                 © 2026 Vela Vibe
-            </p>
+            </span>
+
+            <span>
+                Todos os direitos reservados.
+            </span>
 
         </div>
 
-
-        <!-- SOBRE -->
-        <div class="rodape-coluna">
-
-            <p>
-                Oferecemos velas de alta qualidade,
-                feitas com ceras naturais e fragrâncias
-                cuidadosamente escolhidas para uma
-                experiência única.
-            </p>
-
-            <p>
-                ☎ (11) 91959-4341
-            </p>
-
-            <p>
-                ✉ velavibe2026@gmail.com
-            </p>
-
-        </div>
-
-
-        <!-- PRODUTOS -->
-        <div class="rodape-coluna">
-
-            <h3>PRODUTOS</h3>
-
-            <a href="Produtos.html">
-                Nosso catálogo
-            </a>
-
-            <a href="CrieSuaVela.html">
-                Crie sua vela
-            </a>
-
-            <a href="atacado.html">
-                Atacado
-            </a>
-
-        </div>
-
-
-        <!-- ACESSO RÁPIDO -->
-        <div class="rodape-coluna">
-
-            <h3>ACESSO RÁPIDO</h3>
-
-            <a href="sobre.html">
-                Sobre nós
-            </a>
-
-            <a href="contato.html">
-                Contato
-            </a>
-
-            <a href="Carrinho.html">
-                Meu carrinho
-            </a>
-
-        </div>
-
-
-        <!-- POLÍTICAS -->
-        <div class="rodape-coluna">
-
-            <h3>POLÍTICAS</h3>
-
-            <a href="#">
-                Perguntas frequentes
-            </a>
-
-            <a href="#">
-                Política de privacidade
-            </a>
-
-            <a href="#">
-                Termos de uso
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <!-- COPYRIGHT -->
-    <div class="rodape-final">
-
-        <span>
-            © 2026 Vela Vibe
-        </span>
-
-        <span>
-            Todos os direitos reservados.
-        </span>
-
-    </div>
-
-</footer>
-
+    </footer>
 
 <script src="js/script.js"></script>
 
