@@ -9,195 +9,186 @@
     <title>Carrinho | Vela Vibe</title>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
 
-<header class="cabecalho">
+    <!-- CABEÇALHO -->
 
-    <div class="logo">
-        <img src="img/logo.jpg" alt="Logo Vela Vibe">
-    </div>
+    <header class="cabecalho">
 
-    <nav class="menu">
-            <a href="index.html" aria-current="page">Início</a>
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo.jpg" alt="Logo Vela Vibe">
+            </a>
+        </div>
+
+        <nav class="menu">
+            <a href="index.html">Início</a>
             <a href="Produtos.html">Produtos</a>
             <a href="evento.html">Eventos</a>
             <a href="atacado.html">Atacado</a>
             <a href="sobre.html">Sobre nós</a>
             <a href="contato.html">Contato</a>
         </nav>
-    
-    <a href="Carrinho.html" class="carrinho">
-        <img src="img/carrinho.jpg" alt="Carrinho">
-    </a>
 
-</header>
+        <a
+            href="Carrinho.html"
+            class="carrinho"
+            aria-label="Meu carrinho"
+            aria-current="page"
+        >
+            <img src="img/carrinho.jpg" alt="Carrinho">
+        </a>
 
-
-<main>
-
-    <section class="pagina-carrinho">
-
-        <div class="titulo-secao">
-
-            <p>SEU PEDIDO</p>
-
-            <h1>Meu carrinho</h1>
-
-            <span>Confira os produtos escolhidos.</span>
-
-        </div>
+    </header>
 
 
-        <div class="carrinho-conteudo">
+    <!-- CONTEÚDO PRINCIPAL -->
 
-            <!-- PRODUTOS DO CARRINHO -->
+    <main>
 
-            <div id="lista-carrinho">
+        <section class="pagina-carrinho">
 
-                <p>Seu carrinho está vazio.</p>
+            <!-- TÍTULO -->
+
+            <div class="titulo-secao">
+
+                <p>SEU PEDIDO</p>
+
+                <h1>Meu carrinho</h1>
+
+                <span>
+                    Confira os produtos escolhidos.
+                </span>
 
             </div>
 
 
-            <!-- RESUMO DA COMPRA -->
-
-            <div class="resumo-carrinho">
-
-                <h2>Resumo da compra</h2>
-
-                <p>
-                    Subtotal dos produtos:
-                    <span id="subtotal">R$ 0,00</span>
-                </p>
+            <div class="carrinho-conteudo">
 
 
-                <!-- REGIÃO DE ENTREGA -->
+                <!-- PRODUTOS DO CARRINHO -->
 
-                <div class="campo-regiao">
+                <div id="lista-carrinho">
 
-                    <label for="regiao-frete">
-                        Região de entrega:
-                    </label>
-
-                    <select id="regiao-frete">
-
-                        <option value="">
-                            Selecione sua região
-                        </option>
-
-                        <option value="sudeste" data-frete="35">
-                            Sudeste - R$ 35,00
-                        </option>
-
-                        <option value="sul" data-frete="45">
-                            Sul - R$ 45,00
-                        </option>
-
-                        <option value="centro-oeste" data-frete="50">
-                            Centro-Oeste - R$ 50,00
-                        </option>
-
-                        <option value="nordeste" data-frete="60">
-                            Nordeste - R$ 60,00
-                        </option>
-
-                        <option value="norte" data-frete="75">
-                            Norte - R$ 75,00
-                        </option>
-
-                    </select>
+                    <p>Seu carrinho está vazio.</p>
 
                 </div>
 
 
-                <!-- VALOR DO FRETE -->
+                <!-- RESUMO DA COMPRA -->
 
-                <p>
-                    Frete:
-                    <span id="valor-frete">R$ 0,00</span>
-                </p>
+                <div class="resumo-carrinho">
+
+                    <h2>Resumo da compra</h2>
 
 
-                <!-- TOTAL -->
-
-                <div class="resumo-total">
+                    <!-- SUBTOTAL -->
 
                     <p>
-                        Total da compra:
-                        <strong id="total">R$ 0,00</strong>
+                        Subtotal dos produtos:
+
+                        <span id="subtotal">
+                            R$ 0,00
+                        </span>
+                    </p>
+
+
+                    <!-- REGIÃO DE ENTREGA -->
+
+                    <div class="campo-regiao">
+
+                        <label for="regiao-frete">
+                            Região de entrega:
+                        </label>
+
+                        <select id="regiao-frete">
+
+                            <option value="">
+                                Selecione sua região
+                            </option>
+
+                            <option value="sudeste">
+                                Sudeste
+                            </option>
+
+                            <option value="sul">
+                                Sul
+                            </option>
+
+                            <option value="centro-oeste">
+                                Centro-Oeste
+                            </option>
+
+                            <option value="nordeste">
+                                Nordeste
+                            </option>
+
+                            <option value="norte">
+                                Norte
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- VALOR DO FRETE -->
+
+                    <p>
+                        Frete:
+
+                        <span id="valor-frete">
+                            R$ 0,00
+                        </span>
+                    </p>
+
+
+                    <!-- TOTAL -->
+
+                    <div class="resumo-total">
+
+                        <p>
+                            Total da compra:
+
+                            <strong id="total">
+                                R$ 0,00
+                            </strong>
+                        </p>
+
+                    </div>
+
+
+                    <!-- FINALIZAR COMPRA -->
+
+                    <button
+                        id="finalizar-compra"
+                        type="button"
+                    >
+                        Finalizar compra
+                    </button>
+
+
+                    <!-- AVISO DE FRETE -->
+
+                    <p class="aviso-frete">
+                        O frete é estimado conforme a região de
+                        entrega e o peso total do pedido.
                     </p>
 
                 </div>
 
-
-                <button id="finalizar-compra" type="button">
-                    Finalizar compra
-                </button>
-
-                <p class="aviso-frete">
-                    O valor do frete é fixo por pedido e não varia
-                    conforme a quantidade de velas.
-                </p>
-
             </div>
 
-        </div>
+        </section>
 
-    </section>
-
-</main>
+    </main>
 
 
-<footer class="rodape">
-
-    <!-- NEWSLETTER -->
-
-    <div class="newsletter">
-
-        <div class="newsletter-texto">
-
-            <p>
-                Fique por dentro das nossas novidades e
-                promoções exclusivas.
-            </p>
-
-        </div>
-
-
-        <div class="newsletter-form">
-
-            <label for="newsletter-email">E-mail</label>
-
-            <input
-                type="email"
-                id="newsletter-email"
-                name="newsletter-email"
-                placeholder="Digite seu e-mail"
-            >
-
-            <button type="button">
-                ➤
-            </button>
-
-        </div>
-
-
-        <div class="redes-sociais">
-
-            <span>SIGA-NOS</span>
-
-            <a href="#" aria-label="Instagram">
-                ◎
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <!-- INFORMAÇÕES -->
+    <!-- RODAPÉ -->
 
     <footer class="rodape">
 
@@ -233,11 +224,11 @@
                         placeholder="Digite seu e-mail"
                     >
 
-                    <button type="button"
-                            aria-label="Enviar e-mail">
-
+                    <button
+                        type="button"
+                        aria-label="Enviar e-mail"
+                    >
                         ➤
-
                     </button>
 
                 </div>
@@ -251,14 +242,18 @@
 
                 <span>SIGA-NOS</span>
 
-                <a href="https://www.instagram.com/vela.vibe_/"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   title="Instagram Vela Vibe"
-                   aria-label="Visite o Instagram da Vela Vibe">
+                <a
+                    href="https://www.instagram.com/vela.vibe_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Instagram Vela Vibe"
+                    aria-label="Visite o Instagram da Vela Vibe"
+                >
 
-                    <img src="img/instagram.png"
-                         alt="Instagram Vela Vibe">
+                    <img
+                        src="img/instagram.png"
+                        alt="Instagram Vela Vibe"
+                    >
 
                 </a>
 
@@ -276,8 +271,10 @@
 
             <div class="rodape-coluna logo-rodape">
 
-                <img src="img/Logo.jpeg"
-                     alt="Vela Vibe">
+                <img
+                    src="img/Logo.jpeg"
+                    alt="Vela Vibe"
+                >
 
                 <p>
                     © 2026 Vela Vibe
@@ -396,8 +393,6 @@
         </div>
 
     </footer>
-
-<script src="js/script.js"></script>
 
 </body>
 
