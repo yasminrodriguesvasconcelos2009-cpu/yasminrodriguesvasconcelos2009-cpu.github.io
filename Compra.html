@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -8,212 +9,209 @@
     <title>Produtos | Vela Vibe</title>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
 
-<header class="cabecalho">
+    <!-- CABEÇALHO -->
 
-    <div class="logo">
-        <img src="img/logo.jpg" alt="Logo Vela Vibe">
-    </div>
+    <header class="cabecalho">
 
-    <nav class="menu">
-        <a href="index.html">Início</a>
-        <a href="Produtos.html" class="ativo">Produtos</a>
-        <a href="atacado.html">Atacado</a>
-        <a href="sobre.html">Sobre nós</a>
-        <a href="contato.html">Contato</a>
-    </nav>
+        <div class="logo">
+            <img src="img/logo.jpg" alt="Logo Vela Vibe">
+        </div>
 
-    <a href="CrieSuaVela.html" class="criar-vela" title="Crie sua vela">
-        <img src="img/criarsuavela.jpg" alt="Crie sua vela">
-    </a>
+        <nav class="menu">
+            <a href="index.html">Início</a>
+            <a href="Produtos.html" class="ativo">Produtos</a>
+            <a href="atacado.html">Atacado</a>
+            <a href="sobre.html">Sobre nós</a>
+            <a href="contato.html">Contato</a>
+        </nav>
 
-    <a href="Acompanhe.html" class="acompanhar-entrega" title="Acompanhar entrega">
-        <img src="img/icone2.jpg" alt="Acompanhar entrega">
-    </a>
+        <a href="CrieSuaVela.html" class="criar-vela" title="Crie sua vela">
+            <img src="img/criarsuavela.jpg" alt="Crie sua vela">
+        </a>
 
-    <a href="Carrinho.html" class="carrinho">
-        <img src="img/carrinho.jpg" alt="Carrinho">
-    </a>
+        <a href="Acompanhe.html" class="acompanhar-entrega" title="Acompanhar entrega">
+            <img src="img/icone2.jpg" alt="Acompanhar entrega">
+        </a>
 
-</header>
+        <a href="Carrinho.html" class="carrinho">
+            <img src="img/carrinho.jpg" alt="Carrinho">
+        </a>
 
-
-<main>
-
-    <section class="pagina-compra">
-
-        <div class="produto-detalhe">
-
-            <!-- IMAGEM DO PRODUTO -->
-
-            <div class="produto-imagem-grande" id="imagem-produto">
-
-                <img
-                    id="imagem-produto-img"
-                    src="img/baunilha.jpg"
-                    alt="Vela artesanal de Baunilha"
-                >
-
-            </div>
+    </header>
 
 
-            <!-- INFORMAÇÕES DO PRODUTO -->
+    <!-- CONTEÚDO PRINCIPAL -->
 
-            <div class="produto-informacoes">
+    <main>
 
-                <p class="categoria-produto">
-                    VELA ARTESANAL | 150 ML
-                </p>
+        <section class="pagina-compra">
 
-                <h1 id="nome-produto">
-                    Vela de Baunilha
-                </h1>
+            <div class="produto-detalhe">
 
-                <p class="descricao-produto" id="descricao-produto">
-                    Uma vela artesanal desenvolvida para proporcionar
-                    aconchego e uma experiência especial através de
-                    fragrâncias cuidadosamente selecionadas. Nossa vela artesanal com aroma suave de baunilha, 
-                    é perfeita para deixar o ambiente mais aconchegante e agradável, exalando a vibe de calmaria. 
-                    A doçura clássica da fava de baunilha reinterpretada em uma fragrância madura, sofisticada e envolvente. 
-                    Esta vela foi desenhada para quem busca elevar a atmosfera da casa 
-                    através de notas gourmands que equilibram perfeitamente o dulçor cremoso com uma presença marcante e elegante.
-                </p>
+                <!-- IMAGEM DO PRODUTO -->
 
+                <div class="produto-imagem-grande" id="imagem-produto">
 
-                <!-- PREÇO -->
-
-                <div class="produto-precos">
-
-                    <h2 id="preco-produto">
-                        R$ 30,00
-                    </h2>
-
-                    <p class="preco-unitario">
-                        Preço por unidade.
-                    </p>
-
-                    <div class="aviso-desconto">
-
-                        <p>
-                            <strong>PREÇO ESPECIAL POR QUANTIDADE</strong>
-                        </p>
-
-                        <p>
-                            De 1 a 11 unidades: R$ 30,00 cada.
-                        </p>
-
-                        <p>
-                            A partir de 12 unidades: R$ 25,00 cada.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <!-- QUANTIDADE -->
-
-                <div class="quantidade">
-
-                    <label for="quantidade">
-                        Quantidade:
-                    </label>
-
-                    <input
-                        type="number"
-                        id="quantidade"
-                        name="quantidade"
-                        value="1"
-                        min="1"
-                        step="1"
+                    <img
+                        id="imagem-produto-img"
+                        src="img/baunilha.jpg"
+                        alt="Vela artesanal de Baunilha"
                     >
 
                 </div>
 
 
-                <!-- SUBTOTAL -->
+                <!-- INFORMAÇÕES DO PRODUTO -->
 
-                <div class="produto-subtotal">
+                <div class="produto-informacoes">
 
-                    <p>
-                        Subtotal:
-                        <strong id="subtotal-produto">R$ 30,00</strong>
+                    <p class="categoria-produto">
+                        VELA ARTESANAL | 150 ML
                     </p>
 
-                    <p id="mensagem-desconto">
-                        Adicione 12 unidades para alcançar o preço especial.
+                    <h1 id="nome-produto">
+                        Vela de Baunilha
+                    </h1>
+
+                    <p class="descricao-produto" id="descricao-produto">
+                        Uma vela artesanal desenvolvida para proporcionar
+                        aconchego e uma experiência especial através de
+                        fragrâncias cuidadosamente selecionadas.
+
+                        Nossa vela artesanal com aroma suave de baunilha
+                        é perfeita para deixar o ambiente mais aconchegante
+                        e agradável, exalando a vibe de calmaria.
+
+                        A doçura clássica da fava de baunilha reinterpretada
+                        em uma fragrância madura, sofisticada e envolvente.
+
+                        Esta vela foi desenhada para quem busca elevar a
+                        atmosfera da casa através de notas gourmands que
+                        equilibram perfeitamente o dulçor cremoso com uma
+                        presença marcante e elegante.
                     </p>
+
+
+                    <!-- PREÇO -->
+
+                    <div class="produto-precos">
+
+                        <h2 id="preco-produto">
+                            R$ 30,00
+                        </h2>
+
+                        <p class="preco-unitario">
+                            Preço por unidade.
+                        </p>
+
+                        <div class="aviso-desconto">
+
+                            <p>
+                                <strong>PREÇO ESPECIAL POR QUANTIDADE</strong>
+                            </p>
+
+                            <p>
+                                De 1 a 11 unidades: R$ 30,00 cada.
+                            </p>
+
+                            <p>
+                                A partir de 12 unidades: R$ 25,00 cada.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- QUANTIDADE -->
+
+                    <div class="quantidade">
+
+                        <label for="quantidade">
+                            Quantidade:
+                        </label>
+
+                        <input
+                            type="number"
+                            id="quantidade"
+                            name="quantidade"
+                            value="1"
+                            min="1"
+                            step="1"
+                        >
+
+                    </div>
+
+
+                    <!-- SUBTOTAL -->
+
+                    <div class="produto-subtotal">
+
+                        <p>
+                            Subtotal:
+                            <strong id="subtotal-produto">R$ 30,00</strong>
+                        </p>
+
+                        <p id="mensagem-desconto">
+                            Adicione 12 unidades para alcançar o preço especial.
+                        </p>
+
+                    </div>
+
+
+                    <!-- FRETE -->
+
+                    <div class="informacao-frete">
+
+                        <p>
+                            <strong>Entrega para todo o Brasil</strong>
+                        </p>
+
+                        <p>
+                            O frete é calculado no carrinho conforme a
+                            região de entrega, considerando a quantidade
+                            de velas e o peso estimado do pedido.
+                        </p>
+
+                    </div>
+
+
+                    <!-- ADICIONAR AO CARRINHO -->
+
+                    <button
+                        type="button"
+                        class="botao-adicionar"
+                        id="adicionar-carrinho"
+                        data-produto="Vela de Baunilha"
+                        data-tamanho="150 ml"
+                        data-preco="30"
+                    >
+                        Adicionar ao carrinho
+                    </button>
+
+
+                    <a href="Produtos.html" class="voltar-produtos">
+                        ← Voltar para produtos
+                    </a>
 
                 </div>
-
-
-                <!-- FRETE -->
-
-                <div class="informacao-frete">
-
-                    <p>
-                        <strong>Entrega para todo o Brasil</strong>
-                    </p>
-
-                    <p>
-                        O frete é calculado no carrinho conforme a
-                        região de entrega. O valor é fixo por pedido,
-                        independentemente da quantidade de velas.
-                    </p>
-
-                </div>
-
-
-                <!-- ADICIONAR AO CARRINHO -->
-
-                <button
-                    type="button"
-                    class="botao-adicionar"
-                    id="adicionar-carrinho"
-                    data-produto="Vela de Baunilha"
-                    data-tamanho="150 ml"
-                    data-preco="30"
-                >
-                    Adicionar ao carrinho
-                </button>
-
-
-                <a href="Produtos.html" class="voltar-produtos">
-                    ← Voltar para produtos
-                </a>
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
-
-</main>
+    </main>
 
 
-<!-- RODAPÉ -->
+    <!-- RODAPÉ -->
 
-<footer class="rodape">
-
-
-    <!-- NEWSLETTER -->
-
-    <div class="newsletter">
-
-        <div class="newsletter-texto">
-
-            <p>
-                Fique por dentro das nossas novidades e
-                promoções exclusivas.
-            </p>
-
-        </div>
-
-
-       <footer class="rodape">
+    <footer class="rodape">
 
 
         <!-- NEWSLETTER -->
@@ -247,11 +245,11 @@
                         placeholder="Digite seu e-mail"
                     >
 
-                    <button type="button"
-                            aria-label="Enviar e-mail">
-
+                    <button
+                        type="button"
+                        aria-label="Enviar e-mail"
+                    >
                         ➤
-
                     </button>
 
                 </div>
@@ -265,14 +263,18 @@
 
                 <span>SIGA-NOS</span>
 
-                <a href="https://www.instagram.com/vela.vibe_/"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   title="Instagram Vela Vibe"
-                   aria-label="Visite o Instagram da Vela Vibe">
+                <a
+                    href="https://www.instagram.com/vela.vibe_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Instagram Vela Vibe"
+                    aria-label="Visite o Instagram da Vela Vibe"
+                >
 
-                    <img src="img/instagram.png"
-                         alt="Instagram Vela Vibe">
+                    <img
+                        src="img/instagram.png"
+                        alt="Instagram Vela Vibe"
+                    >
 
                 </a>
 
@@ -290,8 +292,10 @@
 
             <div class="rodape-coluna logo-rodape">
 
-                <img src="img/Logo.jpeg"
-                     alt="Vela Vibe">
+                <img
+                    src="img/Logo.jpeg"
+                    alt="Vela Vibe"
+                >
 
                 <p>
                     © 2026 Vela Vibe
@@ -411,89 +415,6 @@
 
     </footer>
 
-
-
-<!-- CÁLCULO AUTOMÁTICO DOS PREÇOS -->
-
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const quantidade = document.getElementById("quantidade");
-
-    const precoProduto = document.getElementById("preco-produto");
-
-    const subtotalProduto = document.getElementById("subtotal-produto");
-
-    const mensagemDesconto = document.getElementById("mensagem-desconto");
-
-    const botaoAdicionar = document.getElementById("adicionar-carrinho");
-
-
-    function atualizarPreco() {
-
-        let qtd = parseInt(quantidade.value);
-
-        if (isNaN(qtd) || qtd < 1) {
-            qtd = 1;
-            quantidade.value = 1;
-        }
-
-        const precoUnitario = qtd >= 12 ? 25 : 30;
-
-        const subtotal = qtd * precoUnitario;
-
-
-        precoProduto.textContent = precoUnitario.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL"
-        });
-
-
-        subtotalProduto.textContent = subtotal.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL"
-        });
-
-
-        if (qtd >= 12) {
-
-            mensagemDesconto.textContent =
-                "Desconto aplicado! Você está pagando R$ 25,00 por unidade.";
-
-        } else {
-
-            const faltam = 12 - qtd;
-
-            mensagemDesconto.textContent =
-                `Adicione mais ${faltam} unidade(s) para alcançar o preço especial.`;
-
-        }
-
-
-        // Atualiza informações do produto para o carrinho.
-
-        botaoAdicionar.dataset.quantidade = qtd;
-
-        botaoAdicionar.dataset.preco = precoUnitario;
-
-        botaoAdicionar.dataset.subtotal = subtotal;
-
-    }
-
-
-    quantidade.addEventListener("input", atualizarPreco);
-
-    quantidade.addEventListener("change", atualizarPreco);
-
-    atualizarPreco();
-
-});
-
-</script>
-
-
-<script src="js/script.js"></script>
-
 </body>
+
 </html>
