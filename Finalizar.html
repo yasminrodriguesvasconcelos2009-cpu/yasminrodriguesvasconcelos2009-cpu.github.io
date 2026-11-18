@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -8,198 +9,254 @@
     <title>Finalizar compra - Vela Vibe</title>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
 
-<header class="cabecalho">
+    <!-- CABEÇALHO -->
 
-    <div class="logo">
-        <a href="index.html">
-            <img src="img/logo.jpg" alt="Logo Vela Vibe">
-        </a>
-    </div>
+    <header class="cabecalho">
 
-    <nav class="menu">
-        <a href="index.html">Início</a>
-        <a href="Produtos.html">Produtos</a>
-        <a href="atacado.html">Atacado</a>
-        <a href="sobre.html">Sobre nós</a>
-        <a href="contato.html">Contato</a>
-    </nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo.jpg" alt="Logo Vela Vibe">
+            </a>
+        </div>
 
-    <div class="acoes-cabecalho">
+        <nav class="menu">
+            <a href="index.html">Início</a>
+            <a href="Produtos.html">Produtos</a>
+            <a href="atacado.html">Atacado</a>
+            <a href="sobre.html">Sobre nós</a>
+            <a href="contato.html">Contato</a>
+        </nav>
 
-        <a
+        <div class="acoes-cabecalho">
+
+            <a
                 href="CrieSuaVela.html"
                 class="criar-vela"
                 title="Crie sua vela"
-        >
-            <img
+            >
+                <img
                     src="img/criarsuavela.jpg"
                     alt="Crie sua vela"
-            >
-        </a>
+                >
+            </a>
 
-        <a
+            <a
                 href="Carrinho.html"
                 class="carrinho"
                 title="Carrinho"
-        >
-            <img
+            >
+                <img
                     src="img/carrinho.jpg"
                     alt="Carrinho"
-            >
-        </a>
+                >
+            </a>
 
-    </div>
+        </div>
 
-</header>
+    </header>
 
 
-<main class="finalizar-conteudo">
+    <!-- CONTEÚDO PRINCIPAL -->
 
-    <h1>Finalizar compra</h1>
+    <main class="finalizar-conteudo">
 
-    <div class="finalizar-area">
+        <h1>Finalizar compra</h1>
 
-        <!-- Dados do cliente -->
+        <div class="finalizar-area">
 
-        <section class="dados-cliente">
 
-            <h2>Seus dados</h2>
+            <!-- DADOS DO CLIENTE -->
 
-            <form id="formulario-compra">
+            <section class="dados-cliente">
 
-                <label for="nome">Nome completo</label>
+                <h2>Seus dados</h2>
 
-                <input
+                <form id="formulario-compra">
+
+                    <label for="nome">
+                        Nome completo
+                    </label>
+
+                    <input
                         type="text"
                         id="nome"
                         name="nome"
                         placeholder="Digite seu nome"
+                        autocomplete="name"
                         required
-                >
+                    >
 
 
-                <label for="email">E-mail</label>
+                    <label for="email">
+                        E-mail
+                    </label>
 
-                <input
+                    <input
                         type="email"
                         id="email"
                         name="email"
                         placeholder="Digite seu e-mail"
+                        autocomplete="email"
                         required
-                >
+                    >
 
 
-                <label for="endereco">Endereço</label>
+                    <label for="endereco">
+                        Endereço
+                    </label>
 
-                <input
+                    <input
                         type="text"
                         id="endereco"
                         name="endereco"
                         placeholder="Digite seu endereço"
+                        autocomplete="street-address"
                         required
-                >
+                    >
 
 
-                <label for="cidade">Cidade</label>
+                    <label for="cidade">
+                        Cidade
+                    </label>
 
-                <input
+                    <input
                         type="text"
                         id="cidade"
                         name="cidade"
                         placeholder="Digite sua cidade"
+                        autocomplete="address-level2"
                         required
-                >
+                    >
 
 
-                <label for="cep">CEP</label>
+                    <label for="cep">
+                        CEP
+                    </label>
 
-                <input
+                    <input
                         type="text"
                         id="cep"
                         name="cep"
                         placeholder="Digite seu CEP"
+                        autocomplete="postal-code"
+                        inputmode="numeric"
+                        maxlength="9"
                         required
-                >
+                    >
 
 
-                <h2>Forma de pagamento</h2>
+                    <!-- FORMA DE PAGAMENTO -->
 
-                <label for="pagamento">
-                    Escolha uma forma de pagamento
-                </label>
+                    <h2>Forma de pagamento</h2>
 
-                <select id="pagamento" name="pagamento" required>
+                    <label for="pagamento">
+                        Escolha uma forma de pagamento
+                    </label>
 
-                    <option value="">
-                        Selecione uma opção
-                    </option>
+                    <select
+                        id="pagamento"
+                        name="pagamento"
+                        required
+                    >
 
-                    <option value="pix">
-                        Pix
-                    </option>
+                        <option value="">
+                            Selecione uma opção
+                        </option>
 
-                    <option value="cartao">
-                        Cartão de crédito
-                    </option>
+                        <option value="pix">
+                            Pix
+                        </option>
 
-                    <option value="boleto">
-                        Boleto bancário
-                    </option>
+                        <option value="cartao">
+                            Cartão de crédito
+                        </option>
 
-                </select>
+                        <option value="boleto">
+                            Boleto bancário
+                        </option>
 
-
-                <button type="submit" id="confirmar-compra">
-                    Confirmar pedido
-                </button>
-
-            </form>
-
-        </section>
+                    </select>
 
 
-        <!-- Resumo do pedido -->
+                    <!-- CONFIRMAR PEDIDO -->
 
-        <section class="resumo-final">
+                    <button
+                        type="submit"
+                        id="confirmar-compra"
+                    >
+                        Confirmar pedido
+                    </button>
 
-            <h2>Resumo do pedido</h2>
+                </form>
 
-            <div id="resumo-produtos">
+            </section>
 
-                <p>Carregando produtos...</p>
 
-            </div>
+            <!-- RESUMO DO PEDIDO -->
 
-            <hr>
+            <section class="resumo-final">
 
-            <p>
-                Subtotal:
-                <span id="subtotal-final">
-                    R$ 0,00
-                </span>
-            </p>
+                <h2>Resumo do pedido</h2>
 
-            <p>
-                Total:
-                <strong id="total-final">
-                    R$ 0,00
-                </strong>
-            </p>
+                <div id="resumo-produtos">
 
-        </section>
+                    <p>
+                        Carregando produtos...
+                    </p>
 
-    </div>
+                </div>
 
-</main>
+                <hr>
 
-<footer class="rodape">
 
-    <!-- NEWSLETTER -->
-     <footer class="rodape">
+                <!-- SUBTOTAL -->
+
+                <p>
+                    Subtotal:
+
+                    <span id="subtotal-final">
+                        R$ 0,00
+                    </span>
+                </p>
+
+
+                <!-- FRETE -->
+
+                <p>
+                    Frete:
+
+                    <span id="frete-final">
+                        R$ 0,00
+                    </span>
+                </p>
+
+
+                <!-- TOTAL -->
+
+                <p>
+                    Total:
+
+                    <strong id="total-final">
+                        R$ 0,00
+                    </strong>
+                </p>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+
+    <footer class="rodape">
 
 
         <!-- NEWSLETTER -->
@@ -233,11 +290,11 @@
                         placeholder="Digite seu e-mail"
                     >
 
-                    <button type="button"
-                            aria-label="Enviar e-mail">
-
+                    <button
+                        type="button"
+                        aria-label="Enviar e-mail"
+                    >
                         ➤
-
                     </button>
 
                 </div>
@@ -251,14 +308,18 @@
 
                 <span>SIGA-NOS</span>
 
-                <a href="https://www.instagram.com/vela.vibe_/"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   title="Instagram Vela Vibe"
-                   aria-label="Visite o Instagram da Vela Vibe">
+                <a
+                    href="https://www.instagram.com/vela.vibe_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Instagram Vela Vibe"
+                    aria-label="Visite o Instagram da Vela Vibe"
+                >
 
-                    <img src="img/instagram.png"
-                         alt="Instagram Vela Vibe">
+                    <img
+                        src="img/instagram.png"
+                        alt="Instagram Vela Vibe"
+                    >
 
                 </a>
 
@@ -276,8 +337,10 @@
 
             <div class="rodape-coluna logo-rodape">
 
-                <img src="img/Logo.jpeg"
-                     alt="Vela Vibe">
+                <img
+                    src="img/Logo.jpeg"
+                    alt="Vela Vibe"
+                >
 
                 <p>
                     © 2026 Vela Vibe
@@ -396,17 +459,6 @@
         </div>
 
     </footer>
-
-
-    <!-- JAVASCRIPT -->
-
-    <script src="js/script.js"></script>
-
-</body>
-
-</html>
-
-<script src="js/script.js"></script>
 
 </body>
 
