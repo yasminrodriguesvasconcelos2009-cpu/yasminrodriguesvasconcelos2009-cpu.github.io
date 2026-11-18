@@ -1,3 +1,4 @@
+
 // =====================================================
 // VELA VIBE - SISTEMA COMPLETO
 // Produtos | Carrinho | Frete | Atacado | Personalização
@@ -17,7 +18,6 @@ const QUANTIDADE_ATACADO = 12;
 const PESO_VELA_GRAMAS = 500;
 const PESO_MAXIMO_FRETE = 20000;
 
-// Tabela de fretes estimados por região e peso
 // Valores acadêmicos: não são cotações oficiais dos Correios.
 
 const FRETES_REGIOES = {
@@ -71,6 +71,8 @@ const FRETES_REGIOES = {
 
 const produtos = {
 
+    // COLEÇÃO TRADICIONAL
+
     baunilha: {
         nome: "Vela de Baunilha",
         imagem: "img/baunilha.jpg",
@@ -105,6 +107,33 @@ const produtos = {
         nome: "Vela de Jasmim",
         imagem: "img/jasmim.jpg",
         descricao: "Existem aromas que desaceleram o tempo e acalmam o coração. A nossa vela de Jasmim captura a essência dessa flor, trazendo para o seu lar uma atmosfera de paz e delicadeza. Com notas florais intensas e delicadamente adocicadas, é uma escolha sofisticada para quem deseja uma casa perfumada com personalidade e frescor. Ideal para momentos de leitura, meditação ou descanso."
+    },
+
+
+    // COLEÇÃO ESTAÇÕES
+
+    verao: {
+        nome: "Vela Verão",
+        imagem: "img/velaverão.jpg",
+        descricao: "A Vela Verão, com aroma de Flor de Laranjeira, traz energia, leveza e frescor para iluminar seus dias. Uma fragrância especial para deixar o ambiente mais agradável e cheio de vitalidade."
+    },
+
+    outono: {
+        nome: "Vela Outono",
+        imagem: "img/velaoutono.jpg",
+        descricao: "A Vela Outono combina Canela e Cravo em uma fragrância que transmite aconchego, equilíbrio e transformação. Uma combinação de especiarias para tornar seus momentos ainda mais acolhedores."
+    },
+
+    inverno: {
+        nome: "Vela Inverno",
+        imagem: "img/veladeinverno.jpg",
+        descricao: "A Vela Inverno, com aroma de Lavanda, proporciona conforto, calma e momentos de tranquilidade. Uma fragrância delicada para acompanhar seus momentos de descanso."
+    },
+
+    primavera: {
+        nome: "Vela Primavera",
+        imagem: "img/velaprimavera.jpg",
+        descricao: "A Vela Primavera traz o aroma de Flor de Cerejeira, inspirado na renovação, na alegria e na beleza de florescer. Uma fragrância floral para deixar o ambiente mais leve e especial."
     }
 
 };
@@ -295,12 +324,18 @@ const parametros =
     new URLSearchParams(window.location.search);
 
 const produtoSelecionado =
-    parametros.get("produto");
+    parametros.get("produto") || "baunilha";
+
+// Se a página for aberta sem produto na URL,
+// a vela de Baunilha será exibida como padrão.
 
 const produto =
-    produtoSelecionado
-        ? produtos[produtoSelecionado]
-        : null;
+    produtos[produtoSelecionado] || produtos.baunilha;
+
+const idProdutoAtual =
+    produtos[produtoSelecionado]
+        ? produtoSelecionado
+        : "baunilha";
 
 
 const nomeProduto =
@@ -321,55 +356,98 @@ const campoQuantidade =
 const botaoAdicionarCompra =
     document.getElementById("adicionar-carrinho");
 
+const subtotalProduto =
+    document.getElementById("subtotal-produto");
 
-if (nomeProduto && produto) {
+const mensagemDescontoCompra =
+    document.getElementById("mensagem-desconto");
 
+
+if (nomeProduto) {
     nomeProduto.textContent = produto.nome;
+}
 
-    if (descricaoProduto) {
-        descricaoProduto.textContent = produto.descricao;
-    }
 
-    if (imagemProduto) {
+if (descricaoProduto) {
+    descricaoProduto.textContent = produto.descricao;
+}
 
-        imagemProduto.src = produto.imagem;
-        imagemProduto.alt = produto.nome;
 
-    }
+if (imagemProduto) {
 
-    if (campoQuantidade) {
+    imagemProduto.src = produto.imagem;
+    imagemProduto.alt = produto.nome;
 
-        campoQuantidade.min = 1;
+}
+
+
+if (campoQuantidade) {
+
+    campoQuantidade.min = 1;
+
+    if (!campoQuantidade.value || Number(campoQuantidade.value) < 1) {
         campoQuantidade.value = 1;
-
     }
 
 }
 
 
+// ATUALIZAR PREÇO, SUBTOTAL E DESCONTO
+
 function atualizarPrecoPaginaCompra() {
 
-    if (!produto || !precoProduto) return;
+    if (!campoQuantidade) return;
 
     const quantidadeEscolhida =
         Math.max(1, Number(campoQuantidade.value) || 1);
 
     const carrinho = obterCarrinho();
 
+    const quantidadeNoCarrinho =
+        calcularQuantidadeTotal(carrinho);
+
     const quantidadeProjetada =
-        calcularQuantidadeTotal(carrinho) +
-        quantidadeEscolhida;
+        quantidadeNoCarrinho + quantidadeEscolhida;
 
     const preco =
         calcularPrecoUnitario(quantidadeProjetada);
 
-    precoProduto.textContent =
-        formatarPreco(preco);
+    const subtotal =
+        quantidadeEscolhida * preco;
+
+
+    if (precoProduto) {
+        precoProduto.textContent = formatarPreco(preco);
+    }
+
+    if (subtotalProduto) {
+        subtotalProduto.textContent = formatarPreco(subtotal);
+    }
+
+    if (mensagemDescontoCompra) {
+
+        if (quantidadeProjetada >= QUANTIDADE_ATACADO) {
+
+            mensagemDescontoCompra.textContent =
+                "Preço especial aplicado: R$ 25,00 por vela!";
+
+        } else {
+
+            const faltam =
+                QUANTIDADE_ATACADO - quantidadeProjetada;
+
+            mensagemDescontoCompra.textContent =
+                "Adicione mais " + faltam +
+                " vela(s) ao pedido para alcançar o preço especial.";
+
+        }
+
+    }
 
 }
 
 
-if (campoQuantidade && produto) {
+if (campoQuantidade) {
 
     campoQuantidade.addEventListener(
         "input",
@@ -381,14 +459,16 @@ if (campoQuantidade && produto) {
 }
 
 
-if (botaoAdicionarCompra && produto) {
+// ADICIONAR PRODUTO AO CARRINHO
+
+if (botaoAdicionarCompra) {
 
     botaoAdicionarCompra.addEventListener(
         "click",
         function() {
 
             const quantidade =
-                Number(campoQuantidade.value);
+                Number(campoQuantidade ? campoQuantidade.value : 1);
 
             if (!Number.isInteger(quantidade) || quantidade < 1) {
 
@@ -403,24 +483,26 @@ if (botaoAdicionarCompra && produto) {
             const existente =
                 carrinho.find(function(item) {
 
-                    return item.id === produtoSelecionado &&
+                    return item.id === idProdutoAtual &&
                         !item.personalizada;
 
                 });
 
             if (existente) {
 
-                existente.quantidade += quantidade;
+                existente.quantidade =
+                    Number(existente.quantidade) + quantidade;
 
             } else {
 
                 carrinho.push({
 
-                    id: produtoSelecionado,
+                    id: idProdutoAtual,
                     nome: produto.nome,
                     imagem: produto.imagem,
                     quantidade: quantidade,
-                    personalizada: false
+                    personalizada: false,
+                    tamanho: "150 ml"
 
                 });
 
@@ -469,6 +551,7 @@ function renderizarCarrinho() {
     const carrinho = obterCarrinho();
 
     listaCarrinho.innerHTML = "";
+
 
     // CARRINHO VAZIO
 
@@ -543,6 +626,21 @@ function renderizarCarrinho() {
             document.createElement("div");
 
         produtoHTML.classList.add("item-carrinho");
+
+
+        // IMAGEM DO PRODUTO
+
+        if (item.imagem) {
+
+            const imagem = document.createElement("img");
+
+            imagem.src = item.imagem;
+            imagem.alt = item.nome;
+            imagem.classList.add("imagem-item-carrinho");
+
+            produtoHTML.appendChild(imagem);
+
+        }
 
 
         const nome = document.createElement("h3");
@@ -864,7 +962,8 @@ botoesAdicionar.forEach(function(botao) {
                 nome: produtoSelecionado.nome,
                 imagem: produtoSelecionado.imagem,
                 quantidade: 1,
-                personalizada: false
+                personalizada: false,
+                tamanho: "150 ml"
 
             });
 
@@ -1221,7 +1320,7 @@ function renderizarResumoFinal() {
     }
 
 
-    // PESO ESTIMADO, SE EXISTIR NO HTML
+    // PESO ESTIMADO
 
     const pesoFinal =
         document.getElementById("peso-final");
