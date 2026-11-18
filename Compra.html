@@ -2,15 +2,12 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Produtos | Vela Vibe</title>
 
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
@@ -18,12 +15,14 @@
 <header class="cabecalho">
 
     <div class="logo">
-        <img src="img/logo.jpg" alt="Logo Vela Vibe">
+        <a href="index.html">
+            <img src="img/logo.jpg" alt="Logo Vela Vibe">
+        </a>
     </div>
 
     <nav class="menu">
         <a href="index.html">Início</a>
-        <a href="Produtos.html">Produtos</a>
+        <a href="Produtos.html" class="ativo">Produtos</a>
         <a href="atacado.html">Atacado</a>
         <a href="sobre.html">Sobre nós</a>
         <a href="contato.html">Contato</a>
@@ -33,7 +32,7 @@
         <img src="img/criarsuavela.jpg" alt="Crie sua vela">
     </a>
 
-    <a href="Carrinho.html" class="carrinho">
+    <a href="Carrinho.html" class="carrinho" aria-label="Meu carrinho">
         <img src="img/carrinho.jpg" alt="Carrinho">
     </a>
 
@@ -46,15 +45,25 @@
 
         <div class="produto-detalhe">
 
+            <!-- IMAGEM DO PRODUTO -->
+
             <div class="produto-imagem-grande" id="imagem-produto">
-                <img id="imagem-produto-img" src="img/baunilha.jpg" alt="Vela de Baunilha">
+
+                <img
+                    id="imagem-produto-img"
+                    src="img/baunilha.jpg"
+                    alt="Vela artesanal de Baunilha"
+                >
+
             </div>
 
+
+            <!-- INFORMAÇÕES DO PRODUTO -->
 
             <div class="produto-informacoes">
 
                 <p class="categoria-produto">
-                    VELA ARTESANAL
+                    VELA ARTESANAL | 150 ML
                 </p>
 
                 <h1 id="nome-produto">
@@ -62,13 +71,48 @@
                 </h1>
 
                 <p class="descricao-produto" id="descricao-produto">
-                    Descrição do produto.
+                    Uma vela artesanal desenvolvida para proporcionar
+                    aconchego e uma experiência especial através de
+                    fragrâncias cuidadosamente selecionadas. Nossa vela artesanal com aroma suave de baunilha, 
+                    é perfeita para deixar o ambiente mais aconchegante e agradável, exalando a vibe de calmaria. 
+                    A doçura clássica da fava de baunilha reinterpretada em uma fragrância madura, sofisticada e envolvente. 
+                    Esta vela foi desenhada para quem busca elevar a atmosfera da casa 
+                    através de notas gourmands que equilibram perfeitamente o dulçor cremoso com uma presença marcante e elegante.
                 </p>
 
-                <h2 id="preco-produto">
-                    R$ 29,90
-                </h2>
 
+                <!-- PREÇO -->
+
+                <div class="produto-precos">
+
+                    <h2 id="preco-produto">
+                        R$ 30,00
+                    </h2>
+
+                    <p class="preco-unitario">
+                        Preço por unidade.
+                    </p>
+
+                    <div class="aviso-desconto">
+
+                        <p>
+                            <strong>PREÇO ESPECIAL POR QUANTIDADE</strong>
+                        </p>
+
+                        <p>
+                            De 1 a 11 unidades: R$ 30,00 cada.
+                        </p>
+
+                        <p>
+                            A partir de 12 unidades: R$ 25,00 cada.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUANTIDADE -->
 
                 <div class="quantidade">
 
@@ -77,16 +121,60 @@
                     </label>
 
                     <input
-                            type="number"
-                            id="quantidade"
-                            value="1"
-                            min="1"
+                        type="number"
+                        id="quantidade"
+                        name="quantidade"
+                        value="1"
+                        min="1"
+                        step="1"
                     >
 
                 </div>
 
 
-                <button class="botao-adicionar" id="adicionar-carrinho">
+                <!-- SUBTOTAL -->
+
+                <div class="produto-subtotal">
+
+                    <p>
+                        Subtotal:
+                        <strong id="subtotal-produto">R$ 30,00</strong>
+                    </p>
+
+                    <p id="mensagem-desconto">
+                        Adicione 12 unidades para alcançar o preço especial.
+                    </p>
+
+                </div>
+
+
+                <!-- FRETE -->
+
+                <div class="informacao-frete">
+
+                    <p>
+                        <strong>Entrega para todo o Brasil</strong>
+                    </p>
+
+                    <p>
+                        O frete é calculado no carrinho conforme a
+                        região de entrega. O valor é fixo por pedido,
+                        independentemente da quantidade de velas.
+                    </p>
+
+                </div>
+
+
+                <!-- ADICIONAR AO CARRINHO -->
+
+                <button
+                    type="button"
+                    class="botao-adicionar"
+                    id="adicionar-carrinho"
+                    data-produto="Vela de Baunilha"
+                    data-tamanho="150 ml"
+                    data-preco="30"
+                >
                     Adicionar ao carrinho
                 </button>
 
@@ -104,159 +192,306 @@
 </main>
 
 
+<!-- RODAPÉ -->
+
 <footer class="rodape">
 
+
     <!-- NEWSLETTER -->
+
     <div class="newsletter">
 
         <div class="newsletter-texto">
+
             <p>
                 Fique por dentro das nossas novidades e
                 promoções exclusivas.
             </p>
+
         </div>
 
-        <div class="newsletter-form">
 
-            <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" placeholder="Digite seu e-mail">
+       <footer class="rodape">
 
-            <button type="button">
-                ➤
-            </button>
+
+        <!-- NEWSLETTER -->
+
+        <div class="newsletter">
+
+            <div class="newsletter-texto">
+
+                <p>
+                    Fique por dentro das nossas novidades e
+                    promoções exclusivas.
+                </p>
+
+            </div>
+
+
+            <!-- FORMULÁRIO DE NEWSLETTER -->
+
+            <div class="newsletter-form">
+
+                <label for="newsletter-email">
+                    E-mail
+                </label>
+
+                <div class="newsletter-campo">
+
+                    <input
+                        type="email"
+                        id="newsletter-email"
+                        name="newsletter-email"
+                        placeholder="Digite seu e-mail"
+                    >
+
+                    <button type="button"
+                            aria-label="Enviar e-mail">
+
+                        ➤
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- INSTAGRAM -->
+
+            <div class="redes-sociais">
+
+                <span>SIGA-NOS</span>
+
+                <a href="https://www.instagram.com/vela.vibe_/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   title="Instagram Vela Vibe"
+                   aria-label="Visite o Instagram da Vela Vibe">
+
+                    <img src="img/instagram.png"
+                         alt="Instagram Vela Vibe">
+
+                </a>
+
+            </div>
+
         </div>
 
-        <div class="redes-sociais">
-            <span>SIGA-NOS</span>
 
-            <a href="#" aria-label="Instagram">
-                ◎
-            </a>
+        <!-- INFORMAÇÕES DO RODAPÉ -->
+
+        <div class="rodape-conteudo">
+
+
+            <!-- LOGO -->
+
+            <div class="rodape-coluna logo-rodape">
+
+                <img src="img/Logo.jpeg"
+                     alt="Vela Vibe">
+
+                <p>
+                    © 2026 Vela Vibe
+                </p>
+
+            </div>
+
+
+            <!-- SOBRE -->
+
+            <div class="rodape-coluna">
+
+                <p>
+                    Oferecemos velas de alta qualidade,
+                    feitas com ceras naturais e fragrâncias
+                    cuidadosamente escolhidas para uma
+                    experiência única.
+                </p>
+
+                <p>
+                    ☎ +55 11 91959-4341
+                </p>
+
+                <p>
+                    ✉ velavibe2026@gmail.com
+                </p>
+
+            </div>
+
+
+            <!-- PRODUTOS -->
+
+            <div class="rodape-coluna">
+
+                <h3>PRODUTOS</h3>
+
+                <a href="Produtos.html">
+                    Nosso catálogo
+                </a>
+
+                <a href="CrieSuaVela.html">
+                    Crie sua vela
+                </a>
+
+                <a href="atacado.html">
+                    Atacado
+                </a>
+
+                <a href="evento.html">
+                    Eventos
+                </a>
+
+            </div>
+
+
+            <!-- ACESSO RÁPIDO -->
+
+            <div class="rodape-coluna">
+
+                <h3>ACESSO RÁPIDO</h3>
+
+                <a href="sobre.html">
+                    Sobre nós
+                </a>
+
+                <a href="contato.html">
+                    Contato
+                </a>
+
+                <a href="Carrinho.html">
+                    Meu carrinho
+                </a>
+
+                <a href="Acompanhe.html">
+                    Acompanhar entrega
+                </a>
+
+            </div>
+
+
+            <!-- POLÍTICAS -->
+
+            <div class="rodape-coluna">
+
+                <h3>POLÍTICAS</h3>
+
+                <a href="#">
+                    Perguntas frequentes
+                </a>
+
+                <a href="#">
+                    Política de privacidade
+                </a>
+
+                <a href="#">
+                    Termos de uso
+                </a>
+
+            </div>
+
         </div>
 
-    </div>
 
+        <!-- COPYRIGHT -->
 
-    <!-- INFORMAÇÕES -->
-    <div class="rodape-conteudo">
+        <div class="rodape-final">
 
-        <!-- LOGO -->
-        <div class="rodape-coluna logo-rodape">
-
-            <img
-                    src="img/logo.jpg"
-                    alt="Vela Vibe"
-            >
-
-            <p>
+            <span>
                 © 2026 Vela Vibe
-            </p>
+            </span>
+
+            <span>
+                Todos os direitos reservados.
+            </span>
 
         </div>
 
-
-        <!-- SOBRE -->
-        <div class="rodape-coluna">
-
-            <p>
-                Oferecemos velas de alta qualidade,
-                feitas com ceras naturais e fragrâncias
-                cuidadosamente escolhidas para uma
-                experiência única.
-            </p>
-
-            <p>
-                ☎ (11) 9 9999-9999
-            </p>
-
-            <p>
-                ✉ contato@velavibe.com.br
-            </p>
-
-        </div>
+    </footer>
 
 
-        <!-- PRODUTOS -->
-        <div class="rodape-coluna">
 
-            <h3>PRODUTOS</h3>
+<!-- CÁLCULO AUTOMÁTICO DOS PREÇOS -->
 
-            <a href="Produtos.html">
-                Nosso catálogo
-            </a>
+<script>
 
-            <a href="CrieSuaVela.html">
-                Crie sua vela
-            </a>
+document.addEventListener("DOMContentLoaded", function () {
 
-            <a href="atacado.html">
-                Atacado
-            </a>
+    const quantidade = document.getElementById("quantidade");
 
-        </div>
+    const precoProduto = document.getElementById("preco-produto");
+
+    const subtotalProduto = document.getElementById("subtotal-produto");
+
+    const mensagemDesconto = document.getElementById("mensagem-desconto");
+
+    const botaoAdicionar = document.getElementById("adicionar-carrinho");
 
 
-        <!-- ACESSO RÁPIDO -->
-        <div class="rodape-coluna">
+    function atualizarPreco() {
 
-            <h3>ACESSO RÁPIDO</h3>
+        let qtd = parseInt(quantidade.value);
 
-            <a href="sobre.html">
-                Sobre nós
-            </a>
+        if (isNaN(qtd) || qtd < 1) {
+            qtd = 1;
+            quantidade.value = 1;
+        }
 
-            <a href="contato.html">
-                Contato
-            </a>
+        const precoUnitario = qtd >= 12 ? 25 : 30;
 
-            <a href="Carrinho.html">
-                Meu carrinho
-            </a>
-
-        </div>
+        const subtotal = qtd * precoUnitario;
 
 
-        <!-- POLÍTICAS -->
-        <div class="rodape-coluna">
-
-            <h3>POLÍTICAS</h3>
-
-            <a href="#">
-                Perguntas frequentes
-            </a>
-
-            <a href="#">
-                Política de privacidade
-            </a>
-
-            <a href="#">
-                Termos de uso
-            </a>
-
-        </div>
-
-    </div>
+        precoProduto.textContent = precoUnitario.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        });
 
 
-    <!-- COPYRIGHT -->
-    <div class="rodape-final">
+        subtotalProduto.textContent = subtotal.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        });
 
-        <span>
-            © 2026 Vela Vibe
-        </span>
 
-        <span>
-            Todos os direitos reservados.
-        </span>
+        if (qtd >= 12) {
 
-    </div>
+            mensagemDesconto.textContent =
+                "Desconto aplicado! Você está pagando R$ 25,00 por unidade.";
 
-</footer>
+        } else {
 
+            const faltam = 12 - qtd;
+
+            mensagemDesconto.textContent =
+                `Adicione mais ${faltam} unidade(s) para alcançar o preço especial.`;
+
+        }
+
+
+        // Atualiza informações do produto para o carrinho.
+
+        botaoAdicionar.dataset.quantidade = qtd;
+
+        botaoAdicionar.dataset.preco = precoUnitario;
+
+        botaoAdicionar.dataset.subtotal = subtotal;
+
+    }
+
+
+    quantidade.addEventListener("input", atualizarPreco);
+
+    quantidade.addEventListener("change", atualizarPreco);
+
+    atualizarPreco();
+
+});
+
+</script>
 
 
 <script src="js/script.js"></script>
 
-
 </body>
-
+</html>
