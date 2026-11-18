@@ -13,12 +13,55 @@ const PRECO_VELA_NORMAL = 30.00;
 const PRECO_VELA_ATACADO = 25.00;
 const QUANTIDADE_ATACADO = 12;
 
+// Peso estimado por vela, incluindo pote e embalagem
+const PESO_VELA_GRAMAS = 500;
+const PESO_MAXIMO_FRETE = 20000;
+
+// Tabela de fretes estimados por região e peso
+// Valores acadêmicos: não são cotações oficiais dos Correios.
+
 const FRETES_REGIOES = {
-    "Sudeste": 35.00,
-    "Sul": 45.00,
-    "Centro-Oeste": 50.00,
-    "Nordeste": 60.00,
-    "Norte": 75.00
+
+    "sudeste": [
+        { limite: 2000, valor: 20 },
+        { limite: 5000, valor: 28 },
+        { limite: 10000, valor: 40 },
+        { limite: 15000, valor: 52 },
+        { limite: 20000, valor: 64 }
+    ],
+
+    "sul": [
+        { limite: 2000, valor: 25 },
+        { limite: 5000, valor: 36 },
+        { limite: 10000, valor: 52 },
+        { limite: 15000, valor: 68 },
+        { limite: 20000, valor: 84 }
+    ],
+
+    "centro-oeste": [
+        { limite: 2000, valor: 28 },
+        { limite: 5000, valor: 40 },
+        { limite: 10000, valor: 60 },
+        { limite: 15000, valor: 80 },
+        { limite: 20000, valor: 100 }
+    ],
+
+    "nordeste": [
+        { limite: 2000, valor: 34 },
+        { limite: 5000, valor: 48 },
+        { limite: 10000, valor: 72 },
+        { limite: 15000, valor: 96 },
+        { limite: 20000, valor: 120 }
+    ],
+
+    "norte": [
+        { limite: 2000, valor: 40 },
+        { limite: 5000, valor: 60 },
+        { limite: 10000, valor: 88 },
+        { limite: 15000, valor: 116 },
+        { limite: 20000, valor: 144 }
+    ]
+
 };
 
 
@@ -143,21 +186,6 @@ function calcularSubtotal(carrinho) {
 }
 
 
-function calcularFrete(regiao) {
-
-    return FRETES_REGIOES[regiao] || 0;
-
-}
-
-
-function calcularTotalCompra(carrinho, regiao) {
-
-    return calcularSubtotal(carrinho) +
-        calcularFrete(regiao);
-
-}
-
-
 function atualizarPrecosCarrinho(carrinho) {
 
     const quantidade =
@@ -179,7 +207,88 @@ function atualizarPrecosCarrinho(carrinho) {
 
 
 // =====================================================
-// 4. PÁGINA DE COMPRA
+// 4. CÁLCULO DO PESO E DO FRETE
+// =====================================================
+
+function normalizarRegiao(regiao) {
+
+    return String(regiao || "")
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+}
+
+
+function calcularPesoTotal(carrinho) {
+
+    return calcularQuantidadeTotal(carrinho) *
+        PESO_VELA_GRAMAS;
+
+}
+
+
+function formatarPeso(gramas) {
+
+    return (gramas / 1000)
+        .toFixed(2)
+        .replace(".", ",") + " kg";
+
+}
+
+
+function calcularFrete(regiao, carrinho) {
+
+    const regiaoNormalizada =
+        normalizarRegiao(regiao);
+
+    const tabela =
+        FRETES_REGIOES[regiaoNormalizada];
+
+    if (!tabela || !carrinho || carrinho.length === 0) {
+        return null;
+    }
+
+    const pesoTotal =
+        calcularPesoTotal(carrinho);
+
+    if (pesoTotal > PESO_MAXIMO_FRETE) {
+        return null;
+    }
+
+    const faixa =
+        tabela.find(function(item) {
+
+            return pesoTotal <= item.limite;
+
+        });
+
+    return faixa ? faixa.valor : null;
+
+}
+
+
+function regiaoValida(regiao) {
+
+    return Boolean(
+        FRETES_REGIOES[normalizarRegiao(regiao)]
+    );
+
+}
+
+
+function obterRegiaoSalva() {
+
+    return normalizarRegiao(
+        localStorage.getItem("regiaoEntrega")
+    );
+
+}
+
+
+// =====================================================
+// 5. PÁGINA DE COMPRA
 // =====================================================
 
 const parametros =
@@ -229,8 +338,10 @@ if (nomeProduto && produto) {
     }
 
     if (campoQuantidade) {
+
         campoQuantidade.min = 1;
         campoQuantidade.value = 1;
+
     }
 
 }
@@ -245,11 +356,9 @@ function atualizarPrecoPaginaCompra() {
 
     const carrinho = obterCarrinho();
 
-    const quantidadeExistente =
-        calcularQuantidadeTotal(carrinho);
-
     const quantidadeProjetada =
-        quantidadeExistente + quantidadeEscolhida;
+        calcularQuantidadeTotal(carrinho) +
+        quantidadeEscolhida;
 
     const preco =
         calcularPrecoUnitario(quantidadeProjetada);
@@ -331,7 +440,7 @@ if (botaoAdicionarCompra && produto) {
 
 
 // =====================================================
-// 5. CARRINHO DE COMPRAS
+// 6. CARRINHO DE COMPRAS
 // =====================================================
 
 const listaCarrinho =
@@ -361,6 +470,8 @@ function renderizarCarrinho() {
 
     listaCarrinho.innerHTML = "";
 
+    // CARRINHO VAZIO
+
     if (carrinho.length === 0) {
 
         listaCarrinho.innerHTML = `
@@ -384,6 +495,13 @@ function renderizarCarrinho() {
             mensagemDesconto.textContent = "";
         }
 
+        const pesoExibido =
+            document.getElementById("peso-estimado");
+
+        if (pesoExibido) {
+            pesoExibido.textContent = "0,00 kg";
+        }
+
         return;
 
     }
@@ -401,14 +519,23 @@ function renderizarCarrinho() {
         calcularSubtotal(carrinho);
 
     const regiao =
-        campoRegiao ? campoRegiao.value : "";
+        campoRegiao
+            ? campoRegiao.value
+            : obterRegiaoSalva();
 
     const frete =
-        calcularFrete(regiao);
+        calcularFrete(regiao, carrinho);
 
     const total =
-        subtotal + frete;
+        frete !== null
+            ? subtotal + frete
+            : null;
 
+    const pesoTotal =
+        calcularPesoTotal(carrinho);
+
+
+    // CRIAR ITENS DO CARRINHO
 
     carrinho.forEach(function(item, indice) {
 
@@ -423,8 +550,10 @@ function renderizarCarrinho() {
 
 
         const preco = document.createElement("p");
+
         preco.textContent =
-            "Preço unitário: " + formatarPreco(precoUnitario);
+            "Preço unitário: " +
+            formatarPreco(precoUnitario);
 
 
         const quantidade = document.createElement("span");
@@ -471,6 +600,8 @@ function renderizarCarrinho() {
         );
 
 
+        // DETALHES DA VELA PERSONALIZADA
+
         if (item.personalizada) {
 
             const detalhes =
@@ -479,8 +610,8 @@ function renderizarCarrinho() {
             const tamanho =
                 document.createElement("p");
 
-            tamanho.textContent =
-                "Tamanho: 150 ml";
+            tamanho.textContent = "Tamanho: 150 ml";
+
 
             const aroma =
                 document.createElement("p");
@@ -488,17 +619,20 @@ function renderizarCarrinho() {
             aroma.textContent =
                 "Aroma: " + item.aroma;
 
+
             const cor =
                 document.createElement("p");
 
             cor.textContent =
                 "Cor: " + item.cor;
 
+
             const nomePote =
                 document.createElement("p");
 
             nomePote.textContent =
                 "Nome no pote: " + item.nomePote;
+
 
             detalhes.append(
                 tamanho,
@@ -580,10 +714,35 @@ function renderizarCarrinho() {
 
     if (valorFrete) {
 
-        valorFrete.textContent =
-            regiao
-                ? formatarPreco(frete)
-                : "Selecione sua região";
+        if (!regiao) {
+
+            valorFrete.textContent =
+                "Selecione sua região";
+
+        } else if (frete === null) {
+
+            valorFrete.textContent =
+                "Frete indisponível";
+
+        } else {
+
+            valorFrete.textContent =
+                formatarPreco(frete);
+
+        }
+
+    }
+
+
+    // ATUALIZAR PESO ESTIMADO
+
+    const pesoExibido =
+        document.getElementById("peso-estimado");
+
+    if (pesoExibido) {
+
+        pesoExibido.textContent =
+            formatarPeso(pesoTotal);
 
     }
 
@@ -593,9 +752,9 @@ function renderizarCarrinho() {
     if (totalCarrinho) {
 
         totalCarrinho.textContent =
-            regiao
+            total !== null
                 ? formatarPreco(total)
-                : formatarPreco(subtotal);
+                : "Aguardando cálculo do frete";
 
     }
 
@@ -623,17 +782,22 @@ function renderizarCarrinho() {
 if (campoRegiao) {
 
     const regiaoSalva =
-        localStorage.getItem("regiaoEntrega");
+        obterRegiaoSalva();
 
-    if (regiaoSalva && FRETES_REGIOES[regiaoSalva]) {
+    if (regiaoSalva && regiaoValida(regiaoSalva)) {
+
         campoRegiao.value = regiaoSalva;
+
     }
 
     campoRegiao.addEventListener("change", function() {
 
+        const regiaoSelecionada =
+            normalizarRegiao(campoRegiao.value);
+
         localStorage.setItem(
             "regiaoEntrega",
-            campoRegiao.value
+            regiaoSelecionada
         );
 
         renderizarCarrinho();
@@ -643,13 +807,15 @@ if (campoRegiao) {
 }
 
 
+// RENDERIZAR CARRINHO
+
 if (listaCarrinho) {
     renderizarCarrinho();
 }
 
 
 // =====================================================
-// 6. ADICIONAR PRODUTOS NA PÁGINA INICIAL
+// 7. ADICIONAR PRODUTOS NA PÁGINA INICIAL
 // =====================================================
 
 const botoesAdicionar =
@@ -717,7 +883,7 @@ botoesAdicionar.forEach(function(botao) {
 
 
 // =====================================================
-// 7. CRIE SUA VELA
+// 8. CRIE SUA VELA
 // Todas as velas possuem 150 ml.
 // =====================================================
 
@@ -751,8 +917,10 @@ let corSelecionada = "";
 
 
 if (precoVela) {
+
     precoVela.textContent =
         formatarPreco(PRECO_VELA_NORMAL);
+
 }
 
 
@@ -898,7 +1066,7 @@ if (botaoAdicionarVela) {
 
 
 // =====================================================
-// 8. RESUMO DA FINALIZAÇÃO
+// 9. RESUMO DA FINALIZAÇÃO
 // =====================================================
 
 const resumoProdutos =
@@ -922,14 +1090,23 @@ function renderizarResumoFinal() {
 
     resumoProdutos.innerHTML = "";
 
+
     if (carrinho.length === 0) {
 
         resumoProdutos.textContent =
             "Seu carrinho está vazio.";
 
-        if (subtotalFinal) subtotalFinal.textContent = "R$ 0,00";
-        if (freteFinal) freteFinal.textContent = "R$ 0,00";
-        if (totalFinal) totalFinal.textContent = "R$ 0,00";
+        if (subtotalFinal) {
+            subtotalFinal.textContent = "R$ 0,00";
+        }
+
+        if (freteFinal) {
+            freteFinal.textContent = "R$ 0,00";
+        }
+
+        if (totalFinal) {
+            totalFinal.textContent = "R$ 0,00";
+        }
 
         return;
 
@@ -948,21 +1125,27 @@ function renderizarResumoFinal() {
         calcularSubtotal(carrinho);
 
     const regiao =
-        localStorage.getItem("regiaoEntrega") || "";
+        obterRegiaoSalva();
 
     const frete =
-        calcularFrete(regiao);
+        calcularFrete(regiao, carrinho);
 
     const total =
-        subtotal + frete;
+        frete !== null
+            ? subtotal + frete
+            : null;
 
+    const pesoTotal =
+        calcularPesoTotal(carrinho);
+
+
+    // PRODUTOS DO PEDIDO
 
     carrinho.forEach(function(item) {
 
         const linha = document.createElement("div");
 
         const nome = document.createElement("p");
-
         nome.textContent = item.nome;
 
         const quantidadeItem = document.createElement("p");
@@ -981,6 +1164,7 @@ function renderizarResumoFinal() {
             quantidadeItem,
             valorItem
         );
+
 
         if (item.personalizada) {
 
@@ -1003,23 +1187,50 @@ function renderizarResumoFinal() {
     });
 
 
+    // SUBTOTAL
+
     if (subtotalFinal) {
+
         subtotalFinal.textContent =
             formatarPreco(subtotal);
+
     }
+
+
+    // FRETE
 
     if (freteFinal) {
+
         freteFinal.textContent =
-            regiao
+            frete !== null
                 ? formatarPreco(frete)
-                : "Selecione sua região no carrinho";
+                : "Frete indisponível";
+
     }
 
+
+    // TOTAL
+
     if (totalFinal) {
+
         totalFinal.textContent =
-            regiao
+            total !== null
                 ? formatarPreco(total)
                 : "Frete pendente";
+
+    }
+
+
+    // PESO ESTIMADO, SE EXISTIR NO HTML
+
+    const pesoFinal =
+        document.getElementById("peso-final");
+
+    if (pesoFinal) {
+
+        pesoFinal.textContent =
+            formatarPeso(pesoTotal);
+
     }
 
 }
@@ -1031,7 +1242,7 @@ if (resumoProdutos) {
 
 
 // =====================================================
-// 9. FINALIZAÇÃO E REGISTRO DO PEDIDO
+// 10. FINALIZAÇÃO E REGISTRO DO PEDIDO
 // =====================================================
 
 const formularioCompra =
@@ -1066,9 +1277,9 @@ if (formularioCompra) {
 
 
             const regiao =
-                localStorage.getItem("regiaoEntrega") || "";
+                obterRegiaoSalva();
 
-            if (!FRETES_REGIOES[regiao]) {
+            if (!regiaoValida(regiao)) {
 
                 alert(
                     "Selecione a região de entrega no carrinho antes de finalizar."
@@ -1091,7 +1302,25 @@ if (formularioCompra) {
                 calcularSubtotal(carrinho);
 
             const frete =
-                calcularFrete(regiao);
+                calcularFrete(regiao, carrinho);
+
+
+            if (frete === null) {
+
+                alert(
+                    "Não foi possível calcular o frete. " +
+                    "Verifique a região e o peso do pedido."
+                );
+
+                window.location.href = "Carrinho.html";
+
+                return;
+
+            }
+
+
+            const pesoTotal =
+                calcularPesoTotal(carrinho);
 
             const total =
                 subtotal + frete;
@@ -1112,6 +1341,8 @@ if (formularioCompra) {
                 subtotal: subtotal,
 
                 regiao: regiao,
+
+                pesoGramas: pesoTotal,
 
                 frete: frete,
 
@@ -1153,7 +1384,7 @@ if (formularioCompra) {
 
 
 // =====================================================
-// 10. BOTÃO FINALIZAR COMPRA
+// 11. BOTÃO FINALIZAR COMPRA
 // =====================================================
 
 const botaoFinalizar =
@@ -1174,10 +1405,11 @@ if (botaoFinalizar) {
 
         }
 
-        const regiao =
-            localStorage.getItem("regiaoEntrega");
 
-        if (!FRETES_REGIOES[regiao]) {
+        const regiao =
+            obterRegiaoSalva();
+
+        if (!regiaoValida(regiao)) {
 
             alert("Selecione a região de entrega.");
 
@@ -1189,6 +1421,22 @@ if (botaoFinalizar) {
 
         }
 
+
+        const frete =
+            calcularFrete(regiao, carrinho);
+
+        if (frete === null) {
+
+            alert(
+                "O frete não está disponível para esse peso. " +
+                "Verifique seu carrinho."
+            );
+
+            return;
+
+        }
+
+
         window.location.href = "Finalizar.html";
 
     });
@@ -1197,7 +1445,7 @@ if (botaoFinalizar) {
 
 
 // =====================================================
-// 11. QUIZ - DESCUBRA SUA VIBE
+// 12. QUIZ - DESCUBRA SUA VIBE
 // =====================================================
 
 const quizIniciar =
@@ -1352,6 +1600,7 @@ function mostrarPerguntaQuiz() {
 
     }
 
+
     if (quizNumero) {
 
         quizNumero.textContent =
@@ -1362,6 +1611,7 @@ function mostrarPerguntaQuiz() {
 
     }
 
+
     if (quizProgresso) {
 
         quizProgresso.style.width =
@@ -1370,11 +1620,13 @@ function mostrarPerguntaQuiz() {
 
     }
 
+
     quizPergunta.textContent = pergunta.pergunta;
 
     quizOpcoes.innerHTML = "";
 
     opcaoSelecionadaQuiz = null;
+
 
     if (quizProxima) {
         quizProxima.disabled = true;
@@ -1386,9 +1638,7 @@ function mostrarPerguntaQuiz() {
         const botao = document.createElement("button");
 
         botao.type = "button";
-
         botao.classList.add("quiz-opcao");
-
         botao.textContent = opcao.texto;
 
 
@@ -1420,13 +1670,17 @@ function mostrarPerguntaQuiz() {
 
 function mostrarResultadoQuiz() {
 
+    if (respostasQuiz.length === 0) return;
+
     const contagem = {};
 
     respostasQuiz.forEach(function(vela) {
 
-        contagem[vela] = (contagem[vela] || 0) + 1;
+        contagem[vela] =
+            (contagem[vela] || 0) + 1;
 
     });
+
 
     let vencedora = respostasQuiz[0];
 
@@ -1438,10 +1692,12 @@ function mostrarResultadoQuiz() {
 
     });
 
+
     const resultado =
         resultadoVelasQuiz[vencedora];
 
     if (!resultado) return;
+
 
     if (resultadoTitulo) {
         resultadoTitulo.textContent = resultado.nome;
@@ -1545,6 +1801,10 @@ if (quizRefazer) {
             quizContainer.style.display = "block";
         }
 
+        if (quizIniciar) {
+            quizIniciar.style.display = "none";
+        }
+
         mostrarPerguntaQuiz();
 
     });
@@ -1553,7 +1813,7 @@ if (quizRefazer) {
 
 
 // =====================================================
-// 12. ACOMPANHAMENTO DE PEDIDOS
+// 13. ACOMPANHAMENTO DE PEDIDOS
 // =====================================================
 
 const campoNumeroPedido =
@@ -1625,7 +1885,8 @@ function atualizarRastreamento() {
     if (!pedidoConsultado) return;
 
     const etapaAtual =
-        pedidoConsultado.status || 0;
+        Number(pedidoConsultado.status) || 0;
+
 
     for (let i = 1; i <= 5; i++) {
 
@@ -1667,6 +1928,9 @@ function atualizarRastreamento() {
     const etapa =
         etapasEntrega[etapaAtual];
 
+    if (!etapa) return;
+
+
     if (statusAtual) {
         statusAtual.textContent = etapa.status;
     }
@@ -1701,6 +1965,8 @@ function atualizarRastreamento() {
 }
 
 
+// CONSULTAR PEDIDO
+
 if (botaoConsultarPedido) {
 
     botaoConsultarPedido.addEventListener("click", function() {
@@ -1709,6 +1975,7 @@ if (botaoConsultarPedido) {
             campoNumeroPedido
                 ? campoNumeroPedido.value.trim().toUpperCase()
                 : "";
+
 
         if (!digitado) {
 
@@ -1741,7 +2008,7 @@ if (botaoConsultarPedido) {
         }
 
 
-        if (!pedido || digitado !== pedido.numero.toUpperCase()) {
+        if (!pedido || digitado !== String(pedido.numero).toUpperCase()) {
 
             if (mensagemPedido) {
                 mensagemPedido.textContent =
@@ -1758,6 +2025,7 @@ if (botaoConsultarPedido) {
 
 
         pedidoConsultado = pedido;
+
 
         if (mensagemPedido) {
             mensagemPedido.textContent = "Pedido encontrado!";
@@ -1785,6 +2053,9 @@ if (botaoConsultarPedido) {
             produtoPedidoDetalhes.textContent =
                 "Quantidade: " + pedido.quantidade +
                 " | Região: " + pedido.regiao +
+                " | Peso estimado: " +
+                formatarPeso(pedido.pesoGramas || 0) +
+                " | Frete: " + formatarPreco(pedido.frete) +
                 " | Total: " + formatarPreco(pedido.total);
 
         }
@@ -1795,6 +2066,7 @@ if (botaoConsultarPedido) {
         }
 
         atualizarRastreamento();
+
 
         if (informacoesPedido) {
 
@@ -1837,5 +2109,5 @@ if (botaoAvancarStatus) {
 
 
 // =====================================================
-// 13. FIM DO SISTEMA VELA VIBE
+// 14. FIM DO SISTEMA VELA VIBE
 // =====================================================
