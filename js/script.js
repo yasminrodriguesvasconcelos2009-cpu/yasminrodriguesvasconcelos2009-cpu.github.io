@@ -521,6 +521,7 @@ if (botaoAdicionarCompra) {
 }
 
 
+
 // =====================================================
 // 6. CARRINHO DE COMPRAS
 // =====================================================
@@ -552,14 +553,16 @@ function renderizarCarrinho() {
 
     listaCarrinho.innerHTML = "";
 
-
     // CARRINHO VAZIO
 
     if (carrinho.length === 0) {
 
         listaCarrinho.innerHTML = `
-            <p>O seu carrinho está vazio :(</p>
-            <a href="Produtos.html">Ver produtos</a>
+            <div class="carrinho-vazio">
+                <h2>Seu carrinho está vazio</h2>
+                <p>Que tal escolher uma vela para deixar seu ambiente ainda mais especial?</p>
+                <a href="Produtos.html">Explorar produtos</a>
+            </div>
         `;
 
         if (subtotalCarrinho) {
@@ -574,10 +577,6 @@ function renderizarCarrinho() {
             valorFrete.textContent = "R$ 0,00";
         }
 
-        if (mensagemDesconto) {
-            mensagemDesconto.textContent = "";
-        }
-
         const pesoExibido =
             document.getElementById("peso-estimado");
 
@@ -585,12 +584,15 @@ function renderizarCarrinho() {
             pesoExibido.textContent = "0,00 kg";
         }
 
-        return;
+        if (mensagemDesconto) {
+            mensagemDesconto.textContent = "";
+        }
 
+        return;
     }
 
 
-    atualizarPrecosCarrinho(carrinho);
+    // CÁLCULOS
 
     const quantidadeTotal =
         calcularQuantidadeTotal(carrinho);
@@ -599,7 +601,7 @@ function renderizarCarrinho() {
         calcularPrecoUnitario(quantidadeTotal);
 
     const subtotal =
-        calcularSubtotal(carrinho);
+        quantidadeTotal * precoUnitario;
 
     const regiao =
         campoRegiao
@@ -609,67 +611,138 @@ function renderizarCarrinho() {
     const frete =
         calcularFrete(regiao, carrinho);
 
+    const pesoTotal =
+        calcularPesoTotal(carrinho);
+
     const total =
         frete !== null
             ? subtotal + frete
             : null;
 
-    const pesoTotal =
-        calcularPesoTotal(carrinho);
+
+    // ATUALIZAR PREÇOS SALVOS
+
+    atualizarPrecosCarrinho(carrinho);
 
 
-    // CRIAR ITENS DO CARRINHO
+    // CRIAR CARTÕES DOS PRODUTOS
 
     carrinho.forEach(function(item, indice) {
 
-        const produtoHTML =
-            document.createElement("div");
+        const cartao = document.createElement("article");
 
-        produtoHTML.classList.add("item-carrinho");
-
-
-        // IMAGEM DO PRODUTO
-
-        if (item.imagem) {
-
-            const imagem = document.createElement("img");
-
-            imagem.src = item.imagem;
-            imagem.alt = item.nome;
-            imagem.classList.add("imagem-item-carrinho");
-
-            produtoHTML.appendChild(imagem);
-
-        }
+        cartao.classList.add("item-carrinho");
 
 
-        const nome = document.createElement("h3");
+        // IMAGEM
+
+        const imagem = document.createElement("img");
+
+        imagem.classList.add("imagem-item-carrinho");
+
+        imagem.src = item.imagem || "img/logo.jpg";
+
+        imagem.alt = item.nome;
+
+        imagem.onerror = function() {
+            imagem.src = "img/logo.jpg";
+        };
+
+
+        // INFORMAÇÕES
+
+        const informacoes = document.createElement("div");
+
+        informacoes.classList.add("informacoes-item-carrinho");
+
+
+        const nome = document.createElement("h2");
+
         nome.textContent = item.nome;
+
+
+        const tamanho = document.createElement("p");
+
+        tamanho.textContent =
+            "Tamanho: " + (item.tamanho || "150 ml");
 
 
         const preco = document.createElement("p");
 
+        preco.classList.add("preco-item-carrinho");
+
         preco.textContent =
-            "Preço unitário: " +
-            formatarPreco(precoUnitario);
+            "Preço unitário: " + formatarPreco(precoUnitario);
 
 
-        const quantidade = document.createElement("span");
-        quantidade.textContent = item.quantidade;
+        // DETALHES DA PERSONALIZAÇÃO
 
+        if (item.personalizada) {
+
+            const aroma = document.createElement("p");
+
+            aroma.textContent = "Aroma: " + item.aroma;
+
+
+            const cor = document.createElement("p");
+
+            cor.textContent = "Cor: " + item.cor;
+
+
+            const nomePote = document.createElement("p");
+
+            nomePote.textContent =
+                "Nome no pote: " + item.nomePote;
+
+
+            informacoes.append(
+                aroma,
+                cor,
+                nomePote
+            );
+
+        }
+
+
+        // SUBTOTAL DO ITEM
+
+        const subtotalItem = document.createElement("p");
+
+        subtotalItem.classList.add("subtotal-item-carrinho");
+
+        subtotalItem.textContent =
+            "Subtotal: " +
+            formatarPreco(precoUnitario * item.quantidade);
+
+
+        // CONTROLES DE QUANTIDADE
 
         const controles = document.createElement("div");
+
         controles.classList.add("controle-quantidade");
 
 
         const diminuir = document.createElement("button");
+
         diminuir.type = "button";
+
         diminuir.textContent = "−";
+
+        diminuir.setAttribute("aria-label", "Diminuir quantidade");
+
+
+        const quantidade = document.createElement("span");
+
+        quantidade.textContent = item.quantidade;
 
 
         const aumentar = document.createElement("button");
+
         aumentar.type = "button";
+
         aumentar.textContent = "+";
+
+        aumentar.setAttribute("aria-label", "Aumentar quantidade");
 
 
         controles.append(
@@ -679,78 +752,34 @@ function renderizarCarrinho() {
         );
 
 
-        const subtotalItem = document.createElement("p");
-
-        subtotalItem.textContent =
-            "Subtotal: " +
-            formatarPreco(precoUnitario * item.quantidade);
-
+        // REMOVER
 
         const remover = document.createElement("button");
+
         remover.type = "button";
-        remover.classList.add("remover");
+
+        remover.classList.add("remover-item-carrinho");
+
         remover.textContent = "Remover";
 
 
-        produtoHTML.append(
+        // MONTAR CARTÃO
+
+        informacoes.append(
             nome,
-            preco
-        );
-
-
-        // DETALHES DA VELA PERSONALIZADA
-
-        if (item.personalizada) {
-
-            const detalhes =
-                document.createElement("div");
-
-            const tamanho =
-                document.createElement("p");
-
-            tamanho.textContent = "Tamanho: 150 ml";
-
-
-            const aroma =
-                document.createElement("p");
-
-            aroma.textContent =
-                "Aroma: " + item.aroma;
-
-
-            const cor =
-                document.createElement("p");
-
-            cor.textContent =
-                "Cor: " + item.cor;
-
-
-            const nomePote =
-                document.createElement("p");
-
-            nomePote.textContent =
-                "Nome no pote: " + item.nomePote;
-
-
-            detalhes.append(
-                tamanho,
-                aroma,
-                cor,
-                nomePote
-            );
-
-            produtoHTML.appendChild(detalhes);
-
-        }
-
-
-        produtoHTML.append(
-            controles,
+            tamanho,
+            preco,
             subtotalItem,
+            controles,
             remover
         );
 
-        listaCarrinho.appendChild(produtoHTML);
+        cartao.append(
+            imagem,
+            informacoes
+        );
+
+        listaCarrinho.appendChild(cartao);
 
 
         // AUMENTAR QUANTIDADE
@@ -798,54 +827,45 @@ function renderizarCarrinho() {
     });
 
 
-    // ATUALIZAR SUBTOTAL
+    // SUBTOTAL GERAL
 
     if (subtotalCarrinho) {
-
-        subtotalCarrinho.textContent =
-            formatarPreco(subtotal);
-
+        subtotalCarrinho.textContent = formatarPreco(subtotal);
     }
 
 
-    // ATUALIZAR FRETE
+    // FRETE
 
     if (valorFrete) {
 
         if (!regiao) {
 
-            valorFrete.textContent =
-                "Selecione sua região";
+            valorFrete.textContent = "Selecione sua região";
 
         } else if (frete === null) {
 
-            valorFrete.textContent =
-                "Frete indisponível";
+            valorFrete.textContent = "Frete indisponível";
 
         } else {
 
-            valorFrete.textContent =
-                formatarPreco(frete);
+            valorFrete.textContent = formatarPreco(frete);
 
         }
 
     }
 
 
-    // ATUALIZAR PESO ESTIMADO
+    // PESO
 
     const pesoExibido =
         document.getElementById("peso-estimado");
 
     if (pesoExibido) {
-
-        pesoExibido.textContent =
-            formatarPeso(pesoTotal);
-
+        pesoExibido.textContent = formatarPeso(pesoTotal);
     }
 
 
-    // ATUALIZAR TOTAL
+    // TOTAL
 
     if (totalCarrinho) {
 
@@ -857,18 +877,18 @@ function renderizarCarrinho() {
     }
 
 
-    // MENSAGEM DE ATACADO
+    // DESCONTO
 
     if (mensagemDesconto) {
 
         mensagemDesconto.textContent =
             quantidadeTotal >= QUANTIDADE_ATACADO
 
-                ? "Parabéns! Você recebeu o preço de atacado: R$ 25,00 por vela."
+                ? "Você recebeu o preço especial de R$ 25,00 por vela!"
 
                 : "Faltam " +
                   (QUANTIDADE_ATACADO - quantidadeTotal) +
-                  " vela(s) para alcançar o preço de atacado.";
+                  " vela(s) para alcançar o preço especial.";
 
     }
 
@@ -879,13 +899,10 @@ function renderizarCarrinho() {
 
 if (campoRegiao) {
 
-    const regiaoSalva =
-        obterRegiaoSalva();
+    const regiaoSalva = obterRegiaoSalva();
 
     if (regiaoSalva && regiaoValida(regiaoSalva)) {
-
         campoRegiao.value = regiaoSalva;
-
     }
 
     campoRegiao.addEventListener("change", function() {
